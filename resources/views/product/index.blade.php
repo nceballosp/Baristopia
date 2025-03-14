@@ -2,6 +2,6 @@
 @section('title', 'Home')
 @section('content')
 <div>
-    <h3>Tienda de Cafe :o</h3>
+    <h3>Productos</h3>
 </div>
 @endsection
