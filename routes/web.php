@@ -18,3 +18,10 @@ Route::get('/recipe/create', 'App\Http\Controllers\RecipeController@create')->na
 Route::post('/recipe/save', 'App\Http\Controllers\RecipeController@save')->name('recipe.save');
 Route::get('/recipe/{id}', 'App\Http\Controllers\RecipeController@show')->name('recipe.show');
 Route::delete('/recipe/delete', "App\Http\Controllers\RecipeController@delete")->name('recipe.delete');
+
+//Payment
+Route::get('/payment', 'App\Http\Controllers\PaymentController@index')->name('payment.index');
+Route::get('/payment/create', 'App\Http\Controllers\PaymentController@create')->name('payment.create');
+Route::post('/payment/save', 'App\Http\Controllers\PaymentController@save')->name('payment.save');
+Route::get('/payment/{id}', 'App\Http\Controllers\PaymentController@show')->name('payment.show');
+Route::delete('/payment/delete', "App\Http\Controllers\PaymentController@delete")->name('payment.delete');

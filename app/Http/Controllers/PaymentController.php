@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Payment;  
 use Illuminate\Http\Request;  
+use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;  
 
 class PaymentController extends Controller  
@@ -28,41 +29,28 @@ class PaymentController extends Controller
         return view('payment.create')->with('viewData', $viewData);
     }  
 
-    public function store(Request $request)  
+    public function save(Request $request): RedirectResponse    
     {  
-        $request->validate([  
-            'method' => 'required|string',  
-            'status' => 'required|string',  
-            'order' => 'required|string'  
-        ]);  
-
-        Payment::create([  
-            'method' => $request->method,  
-            'status' => $request->status,  
-            'order' => $request->order  
-        ]);  
+        Payment::validate($request);
+        Payment::create($request->only(['method', 'status']));  
 
         return redirect()->route('payment.index')->with('success', 'Payment created correctly.');  
     }  
 
-    public function destroy(String $id)  
+    public function delete(string $id): RedirectResponse  
     {  
-         
         $payment = Payment::find($id);  
 
-        
         if (!$payment) {  
             return redirect()->route('payment.index')->with('error', 'Payment has not been found.');  
         }  
 
-          
         $payment->delete();  
 
-         
         return redirect()->route('payment.index')->with('success', 'Payment deleted correctly');  
     }  
 
-    public function show(String $id)  
+    public function show(string $id): View  
     {  
         $payment = Payment::findOrFail($id);
 

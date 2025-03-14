@@ -2,24 +2,59 @@
 
 namespace App\Models;  
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;  
+use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Model;  
 
 class Payment extends Model  
 {  
-    use HasFactory;  
+    /** 
+     * PAYMENT ATTRIBUTES
+     * $this->attributes['id'] - int - contains the payment's primary key (id)
+     * $this->attributes['method'] - string - contains the payment method
+     * $this->attributes['status'] - string - contains the payment's status 
+    */
 
- 
-    protected $fillable = ['method', 'status', 'order', 'id'];  
-
-    public function getMethod():String{
-        return $this -> attributes['method'];
+    public static function validate(Request $request): void
+    {
+        $request -> validate([
+            'method'=> 'required',
+        ]);
     }
 
-    public function setMethod(String $payment_method){
-        $this -> attributes['method'];
+    protected $fillable = ['method', 'status'];  
+
+    public function getId(): int
+    {
+        return $this->attributes['id'];
     }
 
-    public function getStatus():String{
-        return $this -> attributes['status'];
+    public function getMethod(): string
+    {
+        return $this->attributes['method'];
     }
+
+    public function setMethod(string $method): void          
+    {
+        $this->attributes['method'] = $method;
+    }
+
+    public function getStatus(): string
+    {
+        return $this->attributes['status'];
+    }
+
+    public function setStatus(string $status): void
+    {
+        $this->attributes['status'] = $status;
+    }
+
+    public function getCreatedAt(): \DateTime
+    {
+        return $this->attributes['created_at'];
+    }
+
+    public function getUpdatedAt(): \DateTime
+    {
+        return $this->attributes['updated_at'];
+    }
+}
