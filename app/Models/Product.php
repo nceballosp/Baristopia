@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
@@ -16,7 +17,7 @@ class Product extends Model
      * $this->attributes['stock'] - int contains the product's stock
     */
     
-    public static function validate($request): void
+    public static function validate(Request $request): void
     {
         $request -> validate([
             'name'=> 'required',
