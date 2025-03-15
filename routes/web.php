@@ -25,3 +25,5 @@ Route::get('/payment/create', 'App\Http\Controllers\PaymentController@create')->
 Route::post('/payment/save', 'App\Http\Controllers\PaymentController@save')->name('payment.save');
 Route::get('/payment/{id}', 'App\Http\Controllers\PaymentController@show')->name('payment.show');
 Route::delete('/payment/delete', "App\Http\Controllers\PaymentController@delete")->name('payment.delete');
+
+Auth::routes();
