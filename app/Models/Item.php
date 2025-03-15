@@ -13,7 +13,7 @@ class Item extends Model
      * $this->attributes['subTotal'] - int - contains the item's subtotal
      */
 
-    protected $fillable = ['quantity', 'ingredients', 'description', 'image'];
+    protected $fillable = ['quantity'];
 
     public function getId(): int
     {

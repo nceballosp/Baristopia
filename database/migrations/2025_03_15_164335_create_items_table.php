@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('items', function (Blueprint $table) {
             $table->id();
-            $table->int('quantity');
-            $table->int('subTotal');
+            $table->integer('quantity');
+            $table->integer('subTotal');
             $table->timestamps();
         });
     }
