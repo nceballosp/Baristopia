@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Model;
 
@@ -15,6 +16,8 @@ class Recipe extends Model
      * $this->attributes['description'] - string - contains the recipe's description
      * $this->attributes['image'] - string - contains the recipe's image url
      */
+
+    use HasFactory;
 
     protected $fillable = ['name', 'ingredients', 'description', 'image'];
 

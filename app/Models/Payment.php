@@ -2,6 +2,7 @@
 
 namespace App\Models;  
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Model;  
 
@@ -13,6 +14,8 @@ class Payment extends Model
      * $this->attributes['method'] - string - contains the payment method
      * $this->attributes['status'] - string - contains the payment's status 
     */
+    
+    use HasFactory;
 
     public static function validate(Request $request): void
     {
@@ -21,7 +24,7 @@ class Payment extends Model
         ]);
     }
 
-    protected $fillable = ['method', 'status'];  
+    protected $fillable = ['method', 'status', 'order'];  
 
     public function getId(): int
     {

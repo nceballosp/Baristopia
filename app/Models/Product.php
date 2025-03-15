@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Model;
 
@@ -16,6 +17,8 @@ class Product extends Model
      * $this->attributes['image'] - string - contains the products's image 
      * $this->attributes['stock'] - int contains the product's stock
     */
+
+    use HasFactory;
     
     public static function validate(Request $request): void
     {
