@@ -11,7 +11,6 @@ class Item extends Model
      * $this->attributes['id'] - int - contains the item's primary key (id)
      * $this->attributes['quantity'] - int - contains the item's quantity
      * $this->attributes['subTotal'] - int - contains the item's subtotal
-     * $this->attributes['orderPrice'] - int - contains the one item price
      */
 
     protected $fillable = ['quantity', 'ingredients', 'description', 'image'];
@@ -39,16 +38,6 @@ class Item extends Model
     public function setSubTotal(int $subTotal): void
     {
         $this->attributes['subTotal'] = $subTotal;
-    }
-
-    public function getOrderPrice(): int
-    {
-        return $this->attributes['orderPrice'];
-    }
-
-    public function setOrderPrice(int $orderPrice): void
-    {
-        $this->attributes['orderPrice'] = $orderPrice;
     }
     
     public function getCreatedAt(): \DateTime

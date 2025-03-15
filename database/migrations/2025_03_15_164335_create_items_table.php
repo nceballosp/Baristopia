@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->int('quantity');
             $table->int('subTotal');
-            $table->int('orderPrice');
             $table->timestamps();
         });
     }
