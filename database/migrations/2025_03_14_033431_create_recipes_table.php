@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('ingredients');
             $table->string('description');
             $table->string('image');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

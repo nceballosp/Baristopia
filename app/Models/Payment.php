@@ -3,6 +3,7 @@
 namespace App\Models;  
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Model;  
 
@@ -13,6 +14,7 @@ class Payment extends Model
      * $this->attributes['id'] - int - contains the payment's primary key (id)
      * $this->attributes['method'] - string - contains the payment method
      * $this->attributes['status'] - string - contains the payment's status 
+     * $this->order - Order - contains the associated order
     */
     
     use HasFactory;
@@ -59,5 +61,20 @@ class Payment extends Model
     public function getUpdatedAt(): \DateTime
     {
         return $this->attributes['updated_at'];
+    }
+
+    public function order(): BelongsTo
+    {
+        return $this->belongsTo(Order::class);
+    }
+    
+    public function getOrderId(): int
+    {
+        return $this->attributes['order_id'];
+    }
+
+    public function getOrder(): Order
+    {
+        return $this->order;
     }
 }

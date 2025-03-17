@@ -2,9 +2,14 @@
 
 namespace App\Models;
 
+use App\Models\User;
+use App\Models\Item;
+use Filament\Notifications\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Product extends Model
 {
@@ -16,6 +21,8 @@ class Product extends Model
      * $this->attributes['price'] - int contains the product's price
      * $this->attributes['image'] - string - contains the products's image 
      * $this->attributes['stock'] - int contains the product's stock
+     * $this->user - User - contains the associated User
+     * $this->items - Item[] - contains the associated Items
     */
 
     use HasFactory;
@@ -93,5 +100,30 @@ class Product extends Model
     public function getUpdatedAt(): \DateTime
     {
         return $this->attributes['updated_at'];
+    }
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
+    
+    public function getUserId(): int
+    {
+        return $this->attributes['user_id'];
+    }
+
+    public function getUser(): User
+    {
+        return $this->user;
+    }
+
+    public function items(): HasMany
+    {
+        return $this->hasMany(Item::class);
+    }
+
+    public function getItems(): Collection
+    {
+        return $this->item;
     }
 }

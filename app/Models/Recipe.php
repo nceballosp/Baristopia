@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Model;
 
@@ -15,6 +16,7 @@ class Recipe extends Model
      * $this->attributes['ingredients'] - string - contains the recipe's ingredients
      * $this->attributes['description'] - string - contains the recipe's description
      * $this->attributes['image'] - string - contains the recipe's image url
+     * $this->user - User - contains the associated User
      */
 
     use HasFactory;
@@ -84,5 +86,20 @@ class Recipe extends Model
     public function getUpdatedAt(): \DateTime
     {
         return $this->attributes['updated_at'];
+    }
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
+    
+    public function getUserId(): int
+    {
+        return $this->attributes['user_id'];
+    }
+
+    public function getUser(): User
+    {
+        return $this->user;
     }
 }
