@@ -18,7 +18,7 @@ return new class extends Migration
             $table->integer('price');
             $table->string('image');
             $table->integer('stock');
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });

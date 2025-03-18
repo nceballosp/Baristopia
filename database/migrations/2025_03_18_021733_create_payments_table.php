@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id(); 
             $table->string('method')->nullable(); 
             $table->string('status'); 
-            $table->unsignedBigInteger('order_id');
+            $table->unsignedBigInteger('order_id')->nullable();
             $table->foreign('order_id')->references('id')->on('orders');
             $table->timestamps();
         });
