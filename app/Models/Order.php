@@ -2,6 +2,7 @@
 
 namespace App\Models;  
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -19,6 +20,9 @@ class Order extends Model
      * $this->payment - Payment - contains the associated Payment
      * $this->items - Item[] - contains the associated Items
      */
+
+    use HasFactory;
+    
     protected $fillable = ['summary', 'total_quantity', 'user_id', 'payment_id'];  
 
     public function getId(): int  
