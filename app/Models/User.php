@@ -16,7 +16,7 @@ class User extends Authenticatable
      * $this->attributes['id'] - int - contains the user's primary key (id)
      * $this->attributes['username'] - string - contains the user's username
      * $this->attributes['name'] - string - contains the users's first name 
-     * $this->attributes['lastName'] - string - contains the users's last name 
+     * $this->attributes['last_name'] - string - contains the users's last name 
      * $this->attributes['email'] - string contains the user's email
      * $this->attributes['password'] - string - contains the users's password 
      * $this->recipes - Recipe[] contains the associated Recipes
@@ -32,7 +32,7 @@ class User extends Authenticatable
      *
      * @var list<string>
      */
-    protected $fillable = ['username', 'name', 'lastname', 'email', 'password',];
+    protected $fillable = ['username', 'name', 'last_name', 'email', 'password',];
 
     /**
      * The attributes that should be hidden for serialization.

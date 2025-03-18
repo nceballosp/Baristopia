@@ -13,7 +13,7 @@ class Item extends Model
      * ITEM ATTRIBUTES
      * $this->attributes['id'] - int - contains the item's primary key (id)
      * $this->attributes['quantity'] - int - contains the item's quantity
-     * $this->attributes['subTotal'] - int - contains the item's subtotal
+     * $this->attributes['sub_total'] - int - contains the item's subtotal
      * &this->product - Product - contains the associated product
      * $this->order - Order - contains the associates Order 
      */
@@ -51,7 +51,7 @@ class Item extends Model
 
     public function setSubTotal(int $subTotal): void
     {
-        $this->attributes['subTotal'] = $subTotal;
+        $this->attributes['sub_total'] = $subTotal;
     }
     
     public function getCreatedAt(): \DateTime
