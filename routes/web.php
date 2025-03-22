@@ -26,4 +26,9 @@ Route::post('/payment/save', 'App\Http\Controllers\PaymentController@save')->nam
 Route::get('/payment/{id}', 'App\Http\Controllers\PaymentController@show')->name('payment.show');
 Route::delete('/payment/delete', "App\Http\Controllers\PaymentController@delete")->name('payment.delete');
 
+//Cart
+Route::get('/cart', 'App\Http\Controllers\CartController@index')->name("cart.index");
+Route::get('/cart/add/{id}', 'App\Http\Controllers\CartController@add')->name("cart.add");
+Route::get('/cart/removeAll/', 'App\Http\Controllers\CartController@removeAll')->name("cart.removeAll");
+
 Auth::routes();
