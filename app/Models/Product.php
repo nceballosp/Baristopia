@@ -32,6 +32,9 @@ class Product extends Model
         $request -> validate([
             'name'=> 'required',
             'price' => 'required | gt:0',
+            'description' => 'required',
+            'stock' => 'required | gt:0',
+            'profile_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
         ]);
     }
 

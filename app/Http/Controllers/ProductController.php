@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Interfaces\ImageStorage;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -42,7 +43,13 @@ class ProductController extends Controller
     public function save(Request $request): RedirectResponse
     {
         Product::validate($request);
-        Product::create($request->only(['name', 'price', 'description', 'image', 'stock']));
+
+        $storeInterface = app(ImageStorage::class);
+        $fileName = $storeInterface->store($request);
+        $productData = $request->only(['name', 'price', 'description', 'stock']);
+        $productData['image'] = $fileName;
+
+        Product::create($productData);
 
         return redirect()->route('product.create')->with('success', 'Product created successfully');
     }
