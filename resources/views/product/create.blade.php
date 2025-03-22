@@ -21,12 +21,14 @@
             </div>
             @endif
 
-            <form method="POST" action="{{ route('product.save') }}">
+            <form method="POST" action="{{ route('product.save') }}" enctype="multipart/form-data">
               @csrf
               <input type="text" class="form-control mb-2" placeholder="Enter name" name="name" value="{{ old('name') }}" />
               <input type="text" class="form-control mb-2" placeholder="Enter price" name="price" value="{{ old('price') }}" />
               <input type="text" class="form-control mb-2" placeholder="Enter description" name="description" value="{{ old('description') }}" />
-              <input type="text" class="form-control mb-2" placeholder="Enter stock" name="price" value="{{ old('stock') }}" />
+              <input type="text" class="form-control mb-2" placeholder="Enter stock" name="stock" value="{{ old('stock') }}" />
+              <label>Image:</label>
+              <input type="file" class="form-control mb-2" name="profile_image"/>
               <input type="submit" class="btn btn-primary" value="Send" />
             </form>
           </div>
