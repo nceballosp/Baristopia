@@ -34,14 +34,13 @@ class OrderController extends Controller{
     public function save(Request $request): RedirectResponse{   
         $this->validate($request, [  
             'summary' => 'required|string',  
-            'cantidadTotal' => 'required|integer',  
-            'user' => 'required|exists:users,id',  // Asegúrate de que el usuario existe  
-            'payment' => 'required|exists:payments,id',  // Asegúrate de que el pago existe  
-            // Agrega más validaciones según tus atributos  
+            'total_quantity' => 'required|integer',  
+            'user' => 'required|exists:users,id',    
+            'payment' => 'required|exists:payments,id', 
         ]);  
 
-        $orderData = $request->only(['summary', 'cantidadTotal', 'user', 'payment']);  
-        $orderData['items'] = $request->input('items', []); // Supongamos que recibes un array de items  
+        $orderData = $request->only(['summary', 'total_quantity', 'user', 'payment']);  
+        $orderData['items'] = $request->input('items', []); 
 
         Order::create($orderData);  
 
@@ -51,11 +50,11 @@ class OrderController extends Controller{
     public function update(Request $request, string $id): RedirectResponse{  
         $this->validate($request, [  
             'summary' => 'required|string',  
-            'cantidadTotal' => 'required|integer',   
+            'total_quantity' => 'required|integer',   
         ]);  
 
         $order = Order::findOrFail($id);  
-        $order->update($request->only(['summary', 'cantidadTotal', 'user', 'payment', 'items']));  
+        $order->update($request->only(['summary', 'total_quantity', 'user', 'payment', 'items']));  
 
         return redirect()->route('order.show', $id)->with('success', 'Order updated successfully');  
     }  
