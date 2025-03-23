@@ -10,11 +10,19 @@ use Illuminate\View\View;
 
 class ProductController extends Controller
 {
-    public function index(): View
+    public function index(Request $request): View
     {
         $viewData = [];
         $viewData['products'] = Product::all();
-
+        
+        $searchQuery = $request->input('search');
+        
+        if ($searchQuery)
+        {
+            $query = '%'.$searchQuery.'%';
+            $viewData['products'] = Product::whereLike('name', $query)->get();
+        }
+        
         return view('product.index')->with('viewData', $viewData);
     }
 

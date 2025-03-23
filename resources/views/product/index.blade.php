@@ -1,6 +1,14 @@
 @extends('layouts.app')
 @section('title', 'Products')
 @section('content')
+
+<div>
+  <form method = "GET" action="" >
+  <input type="text" class="form-control mb-2" placeholder="Search Product" name="search"/>
+  <input type="submit" class="btn btn-primary" value="Send" />
+  </form>
+</div>
+
 <div class="row">
   @foreach ($viewData["products"] as $product)
   <div class="col-md-4 col-lg-3 mb-2">
