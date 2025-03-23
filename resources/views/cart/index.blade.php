@@ -1,21 +1,11 @@
 @extends('layouts.app')
 @section('content')
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-md-12">
-    <h1>Available products</h1>
-    <ul>
-      @foreach($viewData["products"] as $key => $product)
-        <li>
-          Id: {{ $key }} - 
-          Name: {{ $product["name"] }} -
-          Price: {{ $product["price"] }} -
-          <a href="{{ route('cart.add', ['id'=> $key]) }}">Add to cart</a>
-        </li>
-      @endforeach
-    </ul>
-    </div>
+
+@if(session('success'))
+  <div class="alert alert-success">
+    {{ session('success') }}
   </div>
+@endif
 
   <div class="row justify-content-center">
     <div class="col-md-12">
@@ -26,6 +16,8 @@
             Id: {{ $key }} - 
             Name: {{ $product["name"] }} -
             Price: {{ $product["price"] }}
+            <a href="{{ route('cart.remove', $key) }}" class="btn btn-danger">Remove</a>
+                    
           </li>
         @endforeach
       </ul>
