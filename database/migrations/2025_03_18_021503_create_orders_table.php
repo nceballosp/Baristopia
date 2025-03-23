@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->string('summary');
-            $table->integer('total');
-            $table->integer('total_quantity');
+            $table->float('total');
+            $table->float('total_quantity');
             $table->unsignedBigInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
