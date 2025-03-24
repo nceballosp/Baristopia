@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->string('summary');
             $table->float('total');
             $table->float('total_quantity');
             $table->unsignedBigInteger('user_id')->nullable();

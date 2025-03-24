@@ -37,7 +37,7 @@ Route::post('/checkout', "App\Http\Controllers\OrderController@checkout")->name(
 
 // Cart
 Route::get('/cart', 'App\Http\Controllers\CartController@index')->name('cart.index');
-Route::get('/cart/add/{id}', 'App\Http\Controllers\CartController@add')->name('cart.add');
+Route::post('/cart/add/{id}', 'App\Http\Controllers\CartController@add')->name('cart.add');
 Route::get('/cart/remove/{id}', 'App\Http\Controllers\CartController@remove')->name('cart.remove');
 Route::get('/cart/removeAll/', 'App\Http\Controllers\CartController@removeAll')->name('cart.removeAll');
 
