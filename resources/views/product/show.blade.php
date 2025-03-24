@@ -20,14 +20,17 @@
         </h5>
         <p class="card-text">Descripcion: {{ $viewData['product']->getDescription()}}</p>
         <p class="card-text">Price: ${{ $viewData['product']->getPrice()}}</p>
-        <p class="card-text">Stock: {{ $viewData['product']->getStock()}}</p>        
-        <!-- <a href="{{ route('cart.add', $viewData['product']->getId()) }}" class="btn btn-primary">Add to Cart</a> -->
-        <form action="{{ route('cart.add', $viewData['product']->getId()),  }}" method="POST">
+        <p class="card-text">Stock: {{ $viewData['product']->getStock()}}</p>
+        @if ($viewData['product']->getStock() != 0)    
+        <form action="{{ route('cart.add', $viewData['product']->getId())  }}" method="POST">
           @csrf
           <label for="quantity">Quantity:</label>
           <input type="number" name="quantity" id="quantity" min="1" max="{{ $viewData['product']->getStock() }}" value="1" required>
           <button type="submit" class="btn btn-primary">Add to Cart</button>
         </form>
+        @else
+        <p class="card-text">No stock</p>
+        @endif
       </div>
     </div>
   </div>

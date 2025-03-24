@@ -46,7 +46,7 @@ class Item extends Model
 
     public function getSubTotal(): float
     {
-        return $this->attributes['subTotal'];
+        return $this->attributes['sub_total'];
     }
 
     public function setSubTotal(float $subTotal): void

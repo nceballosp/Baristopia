@@ -26,7 +26,7 @@ class Payment extends Model
         ]);
     }
 
-    protected $fillable = ['method', 'status', 'order'];
+    protected $fillable = ['method', 'status', 'order_id'];
 
     public function getId(): int
     {

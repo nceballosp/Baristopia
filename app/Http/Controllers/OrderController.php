@@ -102,6 +102,6 @@ class OrderController extends Controller
 
         session()->forget('cart_product_data');
 
-        return redirect()->route('payment.index');
+        return redirect()->route('payment.index')->with('order_id', $order->getId());
     }
 }
