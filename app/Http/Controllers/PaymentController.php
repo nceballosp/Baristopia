@@ -12,13 +12,19 @@ class PaymentController extends Controller
 {  
     public function index(): View  
     {  
-    $payments = Payment::all();  
-    $viewData = [];  
-    $viewData['title'] = 'Lista de Pagos'; // Agrega un título  
-    $viewData['subtitle'] = 'Pagos realizados'; // Agrega un subtítulo  
-    $viewData['payments'] = $payments; // Asegúrate de pasar los pagos  
+        return view('payment.index'); 
+    }
 
-    return view('payment.index')->with('viewData', $viewData); // Cambiado a payment.index  
+    public function process(Request $request): RedirectResponse  
+    {  
+        Payment::validate($request);
+        $paymentSuccess = true;
+        if ($paymentSuccess) {
+            return redirect()->back()->with('success', 'Payment successful! Your order is confirmed.');
+        } 
+        return back()->with('error', 'Payment failed. Please try again.');
+        
+    
     }
 
     public function create(): View  

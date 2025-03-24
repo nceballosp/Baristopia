@@ -6,7 +6,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\HasOne;  
+use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Http\Request;  
 
 class Order extends Model  
 {  
@@ -22,8 +23,18 @@ class Order extends Model
      */
 
     use HasFactory;
+
+    public static function validate(Request $request): void
+    {
+        $request -> validate([
+            'summary' => 'required|string',  
+            'total_quantity' => 'required|integer',  
+            'user' => 'required|exists:users,id',    
+            'payment' => 'required|exists:payments,id',
+        ]);
+    }
     
-    protected $fillable = ['summary', 'total_quantity', 'user_id', 'payment_id'];  
+    protected $fillable = ['summary', 'total_quantity', 'total', 'user_id', 'payment_id'];  
 
     public function getId(): int  
     {  

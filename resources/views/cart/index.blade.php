@@ -23,6 +23,14 @@
       </ul>
       <a href="{{ route('cart.removeAll') }}">Remove all products from cart</a>
     </div>
+
+    @if(session('cart_product_data'))
+    <form action="{{ route('order.checkout') }}" method="POST">
+        @csrf
+        <button type="submit" class="btn btn-primary">Continue Purchase</button>
+    </form>
+    @endif
+
   </div>
 </div>
 @endsection

@@ -27,7 +27,7 @@ class Item extends Model
         ]);
     }
 
-    protected $fillable = ['quantity'];
+    protected $fillable = ['sub_total','quantity', 'product_id', 'order_id'];
 
     public function getId(): int
     {
