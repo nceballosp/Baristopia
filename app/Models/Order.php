@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use DateTime;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -15,7 +16,6 @@ class Order extends Model
     /**
      * ORDER ATTRIBUTES
      * $this->attributes['id'] - int - contains the order's primary key (id)
-     * $this->attributes['summary'] - string - contains the order summary
      * $this->attributes['total'] - int - contains the order's total price
      * $this->attributes['total_quantity'] - int - contains the order's total quantity of items
      * $this->user - User - contains the associated User
@@ -41,32 +41,22 @@ class Order extends Model
         return $this->attributes['id'];
     }
 
-    public function getSummary(): string
-    {
-        return $this->attributes['summary'];
-    }
-
-    public function setSummary(string $summary): void
-    {
-        $this->attributes['summary'] = $summary;
-    }
-
-    public function getTotal(): int
+    public function getTotal(): float
     {
         return $this->attributes['total'];
     }
 
-    public function setTotal(int $total): void
+    public function setTotal(float $total): void
     {
         $this->attributes['total'] = $total;
     }
 
-    public function getTotalQuantity(): int
+    public function getTotalQuantity(): float
     {
         return $this->attributes['total_quantity'];
     }
 
-    public function setTotalQuantity($totalQuantity): void
+    public function setTotalQuantity(float $totalQuantity): void
     {
         $this->attributes['total_quantity'] = $totalQuantity;
     }
@@ -111,7 +101,7 @@ class Order extends Model
         return $this->hasMany(Item::class);
     }
 
-    public function getItems(): Item
+    public function getItems(): Collection
     {
         return $this->items;
     }

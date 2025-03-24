@@ -14,8 +14,10 @@
         @foreach($viewData["cartProducts"] as $key => $product)
           <li>
             Id: {{ $key }} - 
-            Name: {{ $product["name"] }} -
-            Price: {{ $product["price"] }}
+            Name: {{ $product->getName() }} -
+            Price: ${{ $product->getPrice() }}
+            Quantity: {{ $product->quantity }}
+            Subtotal: ${{ $product->getPrice() * $product->quantity }}
             <a href="{{ route('cart.remove', $key) }}" class="btn btn-danger">Remove</a>
                     
           </li>

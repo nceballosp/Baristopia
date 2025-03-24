@@ -63,12 +63,12 @@ class Product extends Model
         $this->attributes['description'] = $description;
     }
 
-    public function getPrice(): int
+    public function getPrice(): float
     {
         return $this->attributes['price'];
     }
 
-    public function setPrice(int $price): void
+    public function setPrice(float $price): void
     {
         $this->attributes['price'] = $price;
     }

@@ -34,22 +34,22 @@ class Item extends Model
         return $this->attributes['id'];
     }
 
-    public function getQuantity(): int
+    public function getQuantity(): float
     {
         return $this->attributes['quantity'];
     }
 
-    public function setQuantity(int $quantity): void
+    public function setQuantity(float $quantity): void
     {
         $this->attributes['quantity'] = $quantity;
     }
 
-    public function getSubTotal(): int
+    public function getSubTotal(): float
     {
-        return $this->attributes['subTotal'];
+        return $this->attributes['sub_total'];
     }
 
-    public function setSubTotal(int $subTotal): void
+    public function setSubTotal(float $subTotal): void
     {
         $this->attributes['sub_total'] = $subTotal;
     }
