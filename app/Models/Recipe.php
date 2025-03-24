@@ -2,10 +2,11 @@
 
 namespace App\Models;
 
+use DateTime;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Http\Request;
-use Illuminate\Database\Eloquent\Model;
 
 class Recipe extends Model
 {
@@ -18,7 +19,6 @@ class Recipe extends Model
      * $this->attributes['image'] - string - contains the recipe's image url
      * $this->user - User - contains the associated User
      */
-
     use HasFactory;
 
     protected $fillable = ['name', 'ingredients', 'description', 'image'];
@@ -77,13 +77,13 @@ class Recipe extends Model
     {
         $this->attributes['image'] = $image;
     }
-    
-    public function getCreatedAt(): \DateTime
+
+    public function getCreatedAt(): DateTime
     {
         return $this->attributes['created_at'];
     }
 
-    public function getUpdatedAt(): \DateTime
+    public function getUpdatedAt(): DateTime
     {
         return $this->attributes['updated_at'];
     }
@@ -92,7 +92,7 @@ class Recipe extends Model
     {
         return $this->belongsTo(User::class);
     }
-    
+
     public function getUserId(): int
     {
         return $this->attributes['user_id'];

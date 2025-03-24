@@ -1,32 +1,32 @@
 <?php
 
-namespace App\Models;  
+namespace App\Models;
 
+use DateTime;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Http\Request;
-use Illuminate\Database\Eloquent\Model;  
 
-class Payment extends Model  
-{  
-    /** 
+class Payment extends Model
+{
+    /**
      * PAYMENT ATTRIBUTES
      * $this->attributes['id'] - int - contains the payment's primary key (id)
      * $this->attributes['method'] - string - contains the payment method
-     * $this->attributes['status'] - string - contains the payment's status 
+     * $this->attributes['status'] - string - contains the payment's status
      * $this->order - Order - contains the associated order
-    */
-    
+     */
     use HasFactory;
 
     public static function validate(Request $request): void
     {
-        $request -> validate([
-            'method'=> 'required',
+        $request->validate([
+            'method' => 'required',
         ]);
     }
 
-    protected $fillable = ['method', 'status', 'order'];  
+    protected $fillable = ['method', 'status', 'order'];
 
     public function getId(): int
     {
@@ -38,7 +38,7 @@ class Payment extends Model
         return $this->attributes['method'];
     }
 
-    public function setMethod(string $method): void          
+    public function setMethod(string $method): void
     {
         $this->attributes['method'] = $method;
     }
@@ -53,12 +53,12 @@ class Payment extends Model
         $this->attributes['status'] = $status;
     }
 
-    public function getCreatedAt(): \DateTime
+    public function getCreatedAt(): DateTime
     {
         return $this->attributes['created_at'];
     }
 
-    public function getUpdatedAt(): \DateTime
+    public function getUpdatedAt(): DateTime
     {
         return $this->attributes['updated_at'];
     }
@@ -67,7 +67,7 @@ class Payment extends Model
     {
         return $this->belongsTo(Order::class);
     }
-    
+
     public function getOrderId(): int
     {
         return $this->attributes['order_id'];

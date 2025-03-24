@@ -14,8 +14,7 @@ class CartController extends Controller
         $cartProducts = [];
         $cartProductData = $request->session()->get('cart_product_data', []);
 
-        if ($cartProductData) 
-        {
+        if ($cartProductData) {
             $cartProducts = Product::whereIn('id', array_keys($cartProductData))->get()->keyBy('id');
         }
 
@@ -30,6 +29,7 @@ class CartController extends Controller
         $cartProductData = $request->session()->get('cart_product_data');
         $cartProductData[$id] = $id;
         $request->session()->put('cart_product_data', $cartProductData);
+
         return redirect()->back()->with('success', 'Product added successfully');
     }
 
@@ -37,10 +37,9 @@ class CartController extends Controller
     {
         $cartProductData = $request->session()->get('cart_product_data', []);
 
-        if (isset($cartProductData[$id])) 
-        {
-            unset($cartProductData[$id]); 
-            $request->session()->put('cart_product_data', $cartProductData); 
+        if (isset($cartProductData[$id])) {
+            unset($cartProductData[$id]);
+            $request->session()->put('cart_product_data', $cartProductData);
         }
 
         return back()->with('success', 'Product removed successfully ');

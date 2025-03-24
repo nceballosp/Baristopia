@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Product;
 use App\Interfaces\ImageStorage;
+use App\Models\Product;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -14,15 +14,14 @@ class ProductController extends Controller
     {
         $viewData = [];
         $viewData['products'] = Product::all();
-        
+
         $searchQuery = $request->input('search');
-        
-        if ($searchQuery)
-        {
+
+        if ($searchQuery) {
             $query = '%'.$searchQuery.'%';
             $viewData['products'] = Product::whereLike('name', $query)->get();
         }
-        
+
         return view('product.index')->with('viewData', $viewData);
     }
 

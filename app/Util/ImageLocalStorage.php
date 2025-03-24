@@ -15,7 +15,7 @@ class ImageLocalStorage implements ImageStorage
             $file = $request->file('profile_image');
             $imageName = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
             $imageExtension = $extension = $file->getClientOriginalExtension();
-            $fileName = $imageName . '_' . time() . '.' . $extension;
+            $fileName = $imageName.'_'.time().'.'.$extension;
 
             Storage::disk('public')->put(
                 $fileName,
@@ -26,6 +26,6 @@ class ImageLocalStorage implements ImageStorage
         }
 
         return '';
-        
+
     }
 }

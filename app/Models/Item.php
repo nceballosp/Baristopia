@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use DateTime;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -15,19 +16,18 @@ class Item extends Model
      * $this->attributes['quantity'] - int - contains the item's quantity
      * $this->attributes['sub_total'] - int - contains the item's subtotal
      * &this->product - Product - contains the associated product
-     * $this->order - Order - contains the associates Order 
+     * $this->order - Order - contains the associates Order
      */
-
     use HasFactory;
 
     public static function validate(Request $request): void
     {
-        $request -> validate([
-            'quantity'=> 'required',
+        $request->validate([
+            'quantity' => 'required',
         ]);
     }
 
-    protected $fillable = ['sub_total','quantity', 'product_id', 'order_id'];
+    protected $fillable = ['sub_total', 'quantity', 'product_id', 'order_id'];
 
     public function getId(): int
     {
@@ -53,13 +53,13 @@ class Item extends Model
     {
         $this->attributes['sub_total'] = $subTotal;
     }
-    
-    public function getCreatedAt(): \DateTime
+
+    public function getCreatedAt(): DateTime
     {
         return $this->attributes['created_at'];
     }
 
-    public function getUpdatedAt(): \DateTime
+    public function getUpdatedAt(): DateTime
     {
         return $this->attributes['updated_at'];
     }
@@ -69,7 +69,7 @@ class Item extends Model
         return $this->belongsTo(Product::class);
     }
 
-    public function getProductId(): int 
+    public function getProductId(): int
     {
         return $this->attributes['product_id'];
     }
@@ -84,7 +84,7 @@ class Item extends Model
         return $this->belongsTo(Order::class);
     }
 
-    public function getOrderId(): int 
+    public function getOrderId(): int
     {
         return $this->attributes['order_id'];
     }

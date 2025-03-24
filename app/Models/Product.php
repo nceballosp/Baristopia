@@ -2,35 +2,33 @@
 
 namespace App\Models;
 
-use App\Models\User;
-use App\Models\Item;
+use DateTime;
 use Filament\Notifications\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Http\Request;
 
 class Product extends Model
 {
-    /** 
+    /**
      * PRODUCT ATTRIBUTES
      * $this->attributes['id'] - int - contains the product's primary key (id)
      * $this->attributes['name'] - string - contains the product's name
-     * $this->attributes['description'] - string - contains the products's description 
+     * $this->attributes['description'] - string - contains the products's description
      * $this->attributes['price'] - int contains the product's price
-     * $this->attributes['image'] - string - contains the products's image 
+     * $this->attributes['image'] - string - contains the products's image
      * $this->attributes['stock'] - int contains the product's stock
      * $this->user - User - contains the associated User
      * $this->items - Item[] - contains the associated Items
-    */
-
+     */
     use HasFactory;
-    
+
     public static function validate(Request $request): void
     {
-        $request -> validate([
-            'name'=> 'required',
+        $request->validate([
+            'name' => 'required',
             'price' => 'required | gt:0',
             'description' => 'required',
             'stock' => 'required | gt:0',
@@ -95,12 +93,12 @@ class Product extends Model
         $this->attributes['stock'] = $stock;
     }
 
-    public function getCreatedAt(): \DateTime
+    public function getCreatedAt(): DateTime
     {
         return $this->attributes['created_at'];
     }
 
-    public function getUpdatedAt(): \DateTime
+    public function getUpdatedAt(): DateTime
     {
         return $this->attributes['updated_at'];
     }
@@ -109,7 +107,7 @@ class Product extends Model
     {
         return $this->belongsTo(User::class);
     }
-    
+
     public function getUserId(): int
     {
         return $this->attributes['user_id'];

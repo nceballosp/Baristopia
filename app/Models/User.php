@@ -3,6 +3,7 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use DateTime;
 use Filament\Notifications\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -11,18 +12,18 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
-    /** 
+    /**
      * USER ATTRIBUTES
      * $this->attributes['id'] - int - contains the user's primary key (id)
      * $this->attributes['username'] - string - contains the user's username
-     * $this->attributes['name'] - string - contains the users's first name 
-     * $this->attributes['last_name'] - string - contains the users's last name 
+     * $this->attributes['name'] - string - contains the users's first name
+     * $this->attributes['last_name'] - string - contains the users's last name
      * $this->attributes['email'] - string contains the user's email
-     * $this->attributes['password'] - string - contains the users's password 
+     * $this->attributes['password'] - string - contains the users's password
      * $this->recipes - Recipe[] contains the associated Recipes
      * $this->orders - Order[] - contains the associated Orders
      * $this->products - Product[] - contains the associated Products
-    */
+     */
 
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
@@ -32,21 +33,20 @@ class User extends Authenticatable
      *
      * @var list<string>
      */
-    protected $fillable = ['username', 'name', 'last_name', 'email', 'password',];
+    protected $fillable = ['username', 'name', 'last_name', 'email', 'password'];
 
     /**
      * The attributes that should be hidden for serialization.
      *
      * @var list<string>
      */
-    protected $hidden = ['password','remember_token',];
+    protected $hidden = ['password', 'remember_token'];
 
     /**
      * Get the attributes that should be cast.
      *
      * @return array<string, string>
      */
-
     protected function casts(): array
     {
         return [
@@ -65,7 +65,7 @@ class User extends Authenticatable
         return $this->attributes['username'];
     }
 
-    public function setUserName(string $username) : void
+    public function setUserName(string $username): void
     {
         $this->attributes['username'] = $username;
     }
@@ -75,7 +75,7 @@ class User extends Authenticatable
         return $this->attributes['name'];
     }
 
-    public function setName(string $name) : void
+    public function setName(string $name): void
     {
         $this->attributes['name'] = $name;
     }
@@ -85,7 +85,7 @@ class User extends Authenticatable
         return $this->attributes['last_name'];
     }
 
-    public function setLastName(string $lastName) : void
+    public function setLastName(string $lastName): void
     {
         $this->attributes['last_name'] = $lastName;
     }
@@ -95,7 +95,7 @@ class User extends Authenticatable
         return $this->attributes['email'];
     }
 
-    public function setEmail(string $email) : void
+    public function setEmail(string $email): void
     {
         $this->attributes['email'] = $email;
     }
@@ -105,22 +105,22 @@ class User extends Authenticatable
         return $this->attributes['password'];
     }
 
-    public function setPassword(string $password) : void
+    public function setPassword(string $password): void
     {
         $this->attributes['password'] = $password;
     }
 
-    public function getCreatedAt(): \DateTime
+    public function getCreatedAt(): DateTime
     {
         return $this->attributes['created_at'];
     }
 
-    public function getUpdatedAt(): \DateTime
+    public function getUpdatedAt(): DateTime
     {
         return $this->attributes['updated_at'];
     }
 
-    public function getEmailVerifiedAt(): \DateTime
+    public function getEmailVerifiedAt(): DateTime
     {
         return $this->attributes['email_verified_at'];
     }
@@ -154,5 +154,4 @@ class User extends Authenticatable
     {
         return $this->orders;
     }
-
 }

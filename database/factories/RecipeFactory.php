@@ -10,7 +10,7 @@ class RecipeFactory extends Factory
     {
         return [
             'name' => $this->faker->company,
-            'ingredients' =>  $this->faker->randomElement([
+            'ingredients' => $this->faker->randomElement([
                 'Café molido, Agua, Azúcar',
                 'Café en grano, Leche, Canela',
                 'Café instantáneo, Agua caliente, Crema',

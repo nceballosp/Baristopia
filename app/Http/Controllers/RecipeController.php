@@ -38,7 +38,7 @@ class RecipeController extends Controller
 
     public function create(): View
     {
-        $viewData = []; 
+        $viewData = [];
         $viewData['title'] = 'Create recipe';
 
         return view('recipe.create')->with('viewData', $viewData);
