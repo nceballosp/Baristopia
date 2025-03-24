@@ -14,8 +14,12 @@ class CartController extends Controller
         $cartProducts = [];
         $cartProductData = $request->session()->get('cart_product_data', []);
 
-        if ($cartProductData) {
+        if (!empty($cartProductData)) {
             $cartProducts = Product::whereIn('id', array_keys($cartProductData))->get()->keyBy('id');
+    
+            foreach ($cartProducts as $id => $product) {
+                $product->quantity = $cartProductData[$id]['quantity'];
+            }
         }
 
         $viewData = [];
@@ -26,8 +30,12 @@ class CartController extends Controller
 
     public function add(string $id, Request $request): RedirectResponse
     {
+        $quantity = $request->input('quantity');
         $cartProductData = $request->session()->get('cart_product_data');
-        $cartProductData[$id] = $id;
+        $cartProductData[$id] = [
+            'id' => $id,
+            'quantity' => $quantity
+        ];
         $request->session()->put('cart_product_data', $cartProductData);
 
         return redirect()->back()->with('success', 'Product added successfully');

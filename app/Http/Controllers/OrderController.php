@@ -73,42 +73,35 @@ class OrderController extends Controller
 
         $cartProducts = Product::whereIn('id', array_keys($cartProductData))->get();
 
-        foreach ($cartProductData as $productId => $quantity) {
+        foreach ($cartProductData as $productId => $data) {
             $product = Product::find($productId);
             if ($product) {
-                $totalPrice += $product->getPrice() * $quantity;
+                $totalPrice += $product->getPrice() * $data['quantity'];
             }
         }
 
-        $total = $totalPrice;
-        $totalQuantity = $cartProducts->count();
-
-        $summary = 'hola';
+        $totalQuantity = array_sum(array_column($cartProductData, 'quantity'));
 
         $order = Order::create([
-            'summary' => $summary,
             'total_quantity' => $totalQuantity,
-            'total' => $total,
+            'total' => $totalPrice,
             'user_id' => Auth::id(),
         ]);
-
-        $total = 0;
-
-        foreach ($cartProductData as $productId) {
+    
+        foreach ($cartProductData as $productId => $data) {
             $product = Product::find($productId);
             if ($product) {
                 Item::create([
                     'order_id' => $order->getId(),
                     'product_id' => $product->getId(),
-                    'quantity' => 1,
-                    'sub_total' => $product->getPrice(),
+                    'quantity' => $data['quantity'],
+                    'sub_total' => $product->getPrice() * $data['quantity'],
                 ]);
-                $total += $product->getPrice();
             }
         }
 
         session()->forget('cart_product_data');
 
-        return redirect()->route('payment.index');
+        return redirect()->route('payment.index')->with('order_id', $order->getId());
     }
 }
