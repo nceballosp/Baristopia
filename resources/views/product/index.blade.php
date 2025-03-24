@@ -2,9 +2,9 @@
 @section('title', 'Products')
 @section('content')
 
-<div>
-  <form method = "GET" action="" >
-  <input type="text" class="form-control mb-2" placeholder="Search Product" name="search"/>
+<div class="search">
+  <form method = "GET" action="" class="d-flex">
+  <input type="text" class="form-control me-2" placeholder="Search Product" name="search"/>
   <input type="submit" class="btn btn-primary" value="Send" />
   </form>
 </div>
@@ -16,7 +16,7 @@
       <img src="{{ asset('storage/' . $product->getImage()) }}" class="card-img-top img-card">
       <div class="card-body text-center">
         <a href="{{ route('product.show', ['id'=> $product->getId()]) }}"
-          class="btn bg-primary text-white">{{ $product->getName() }}</a>
+          class="btn btn-primary text-white">{{ $product->getName() }}</a>
       </div>
     </div>
   </div>

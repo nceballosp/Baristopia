@@ -1,0 +1,48 @@
+.bg-secondary, .btn-primary, .card-header {
+    background-color: #5E3023 !important;
+    border: none;
+    color: white;
+}
+
+.btn-danger {
+    background-color: #DAB49D;
+    color: #5E3023;
+    border: none;
+    margin-bottom: 0.7rem;
+}
+
+.navbar-brand {
+    padding: 0.7rem;
+}
+
+nav{
+    font-weight: 500;
+}
+
+body {
+    background-color: #895737;
+}
+
+.card, .from {
+    background-color: #C08552;
+}
+
+.search {
+    margin-bottom: 0.7rem;
+}
+
+.form-control{
+    background-color: #C08552;
+    border-color: #5E3023;
+    width: 95%;
+}
+
+.form-control::placeholder {
+    color: #5E3023;
+}
+
+.card-img-top{
+    width: 100%;  
+    height: 200px; 
+    object-fit: cover; 
+}

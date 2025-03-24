@@ -4,11 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+    <link href="{{ asset('/css/app.css') }}" rel="stylesheet" />
     <title>@yield('title', 'Baristopia')</title>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-secondary py-4">
+<nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
     <div class="container">
+      <img src="{{ asset('images/Logop.png') }}" alt="Logo" height="80">
       <a class="navbar-brand" href="{{route('home.index')}}">Baristopia</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
         aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">

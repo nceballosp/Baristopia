@@ -21,7 +21,7 @@
           </li>
         @endforeach
       </ul>
-      <a href="{{ route('cart.removeAll') }}">Remove all products from cart</a>
+      <a class="btn btn-danger" href="{{ route('cart.removeAll') }}">Remove all products from cart</a>
     </div>
 
     @if(session('cart_product_data'))
