@@ -19,7 +19,6 @@ class Payment extends Model
      * $this->attributes['status'] - string - contains the payment's status
      * $this->order - Order - contains the associated order
      */
-    use HasFactory;
 
     public static function validate(Request $request): void
     {

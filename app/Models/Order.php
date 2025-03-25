@@ -24,7 +24,6 @@ class Order extends Model
      * $this->payment - Payment - contains the associated Payment
      * $this->items - Item[] - contains the associated Items
      */
-    use HasFactory;
 
     public static function validate(Request $request): void
     {

@@ -20,7 +20,6 @@ class Item extends Model
      * &this->product - Product - contains the associated product
      * $this->order - Order - contains the associates Order
      */
-    use HasFactory;
 
     public static function validate(Request $request): void
     {

@@ -21,7 +21,6 @@ class Recipe extends Model
      * $this->attributes['image'] - string - contains the recipe's image url
      * $this->user - User - contains the associated User
      */
-    use HasFactory;
 
     protected $fillable = ['name', 'ingredients', 'description', 'image'];
 
