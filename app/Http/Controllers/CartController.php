@@ -14,9 +14,9 @@ class CartController extends Controller
         $cartProducts = [];
         $cartProductData = $request->session()->get('cart_product_data', []);
 
-        if (!empty($cartProductData)) {
+        if (! empty($cartProductData)) {
             $cartProducts = Product::whereIn('id', array_keys($cartProductData))->get()->keyBy('id');
-    
+
             foreach ($cartProducts as $id => $product) {
                 $product->quantity = $cartProductData[$id]['quantity'];
             }
@@ -34,7 +34,7 @@ class CartController extends Controller
         $cartProductData = $request->session()->get('cart_product_data');
         $cartProductData[$id] = [
             'id' => $id,
-            'quantity' => $quantity
+            'quantity' => $quantity,
         ];
         $request->session()->put('cart_product_data', $cartProductData);
 

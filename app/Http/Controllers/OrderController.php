@@ -87,7 +87,7 @@ class OrderController extends Controller
             'total' => $totalPrice,
             'user_id' => Auth::id(),
         ]);
-    
+
         foreach ($cartProductData as $productId => $data) {
             $product = Product::find($productId);
             if ($product) {

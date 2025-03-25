@@ -31,7 +31,7 @@ class PaymentController extends Controller
             if ($order) {
                 foreach ($order->getItems() as $item) {
                     $product = $item->getProduct();
-                    
+
                     if ($product) {
                         $newStock = $product->getStock() - $item->getQuantity();
                         $product->setStock($newStock);
@@ -41,7 +41,7 @@ class PaymentController extends Controller
             }
 
             return redirect()->route('payment.summary', ['id' => $payment->getId()])
-            ->with('success', 'Payment successful! Your order is confirmed.');
+                ->with('success', 'Payment successful! Your order is confirmed.');
         }
 
         return back()->with('error', 'Payment failed. Please try again.');
@@ -51,28 +51,27 @@ class PaymentController extends Controller
     {
         $payment = Payment::findOrFail($id);
         $order = Order::findOrFail($payment->order_id);
-    
+
         $viewData = [];
         $viewData['payment'] = $payment;
         $viewData['order'] = $order;
-    
+
         return view('payment.summary')->with('viewData', $viewData);
     }
 
     public function pdf(string $id)
     {
-    
-    $payment = Payment::findOrFail($id);
-    $order = Order::findOrFail($payment->order_id);
+        $payment = Payment::findOrFail($id);
+        $order = Order::findOrFail($payment->order_id);
 
-    $viewData = [
-        'payment' => $payment,
-        'order' => $order
-    ];
+        $viewData = [
+            'payment' => $payment,
+            'order' => $order,
+        ];
 
-    $pdf = Pdf::loadView('payment.pdf', compact('viewData'));
+        $pdf = Pdf::loadView('payment.pdf', compact('viewData'));
 
-    return $pdf->download("payment_receipt_{$id}.pdf");
+        return $pdf->download("payment_receipt_{$id}.pdf");
     }
 
     public function delete(string $id): RedirectResponse
