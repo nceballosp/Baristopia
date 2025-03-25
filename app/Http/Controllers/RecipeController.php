@@ -19,29 +19,11 @@ class RecipeController extends Controller
         return view('recipe.index')->with('viewData', $viewData);
     }
 
-    public function show(string $id): View
-    {
-        $viewData = [];
-        $recipe = Recipe::findOrFail($id);
-        $viewData['recipe'] = $recipe;
-
-        return view('recipe.show')->with('viewData', $viewData);
-    }
-
     public function create(): View
     {
         $viewData = [];
 
         return view('recipe.create')->with('viewData', $viewData);
-    }
-
-    public function delete(string $id): RedirectResponse
-    {
-        $recipe = Recipe::findOrFail($id);
-        $recipe->delete();
-        $deletionMessage = 'Element deleted succesfully';
-
-        return redirect()->route('recipe.index')->with('message', $deletionMessage);
     }
 
     public function save(Request $request): RedirectResponse
@@ -52,5 +34,23 @@ class RecipeController extends Controller
         $successMessage = 'Element created succesfully';
 
         return redirect()->route('recipe.create')->with('message', $successMessage);
+    }
+
+    public function show(string $id): View
+    {
+        $viewData = [];
+        $recipe = Recipe::findOrFail($id);
+        $viewData['recipe'] = $recipe;
+
+        return view('recipe.show')->with('viewData', $viewData);
+    }
+
+    public function delete(string $id): RedirectResponse
+    {
+        $recipe = Recipe::findOrFail($id);
+        $recipe->delete();
+        $deletionMessage = 'Element deleted succesfully';
+
+        return redirect()->route('recipe.index')->with('message', $deletionMessage);
     }
 }

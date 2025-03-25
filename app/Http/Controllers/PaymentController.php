@@ -18,6 +18,33 @@ class PaymentController extends Controller
         return view('payment.index');
     }
 
+    public function summary(string $id): View
+    {
+        $payment = Payment::findOrFail($id);
+        $order = Order::findOrFail($payment->getOrderId());
+
+        $viewData = [];
+        $viewData['payment'] = $payment;
+        $viewData['order'] = $order;
+
+        return view('payment.summary')->with('viewData', $viewData);
+    }
+
+    public function pdf(string $id)
+    {
+        $payment = Payment::findOrFail($id);
+        $order = Order::findOrFail($payment->order_id);
+
+        $viewData = [
+            'payment' => $payment,
+            'order' => $order,
+        ];
+
+        $pdf = Pdf::loadView('payment.pdf', compact('viewData'));
+
+        return $pdf->download("payment_receipt_{$id}.pdf");
+    }
+
     public function process(Request $request): RedirectResponse
     {
         Payment::validate($request);
@@ -49,33 +76,6 @@ class PaymentController extends Controller
         return back()->with('error', 'Payment failed. Please try again.');
     }
 
-    public function summary(string $id): View
-    {
-        $payment = Payment::findOrFail($id);
-        $order = Order::findOrFail($payment->order_id);
-
-        $viewData = [];
-        $viewData['payment'] = $payment;
-        $viewData['order'] = $order;
-
-        return view('payment.summary')->with('viewData', $viewData);
-    }
-
-    public function pdf(string $id)
-    {
-        $payment = Payment::findOrFail($id);
-        $order = Order::findOrFail($payment->order_id);
-
-        $viewData = [
-            'payment' => $payment,
-            'order' => $order,
-        ];
-
-        $pdf = Pdf::loadView('payment.pdf', compact('viewData'));
-
-        return $pdf->download("payment_receipt_{$id}.pdf");
-    }
-
     public function delete(string $id): RedirectResponse
     {
         $payment = Payment::find($id);
@@ -87,15 +87,5 @@ class PaymentController extends Controller
         $payment->delete();
 
         return redirect()->route('payment.index')->with('success', 'Payment deleted correctly');
-    }
-
-    public function show(string $id): View
-    {
-        $payment = Payment::findOrFail($id);
-
-        $viewData = [];
-        $viewData['payments'] = $payment;
-
-        return view('payment.show')->with('viewData', $viewData);
     }
 }

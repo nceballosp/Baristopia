@@ -9,15 +9,15 @@ Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home.index')
 
 // Product
 Route::get('/product', 'App\Http\Controllers\ProductController@index')->name('product.index');
-Route::get('/product/random', 'App\Http\Controllers\ProductController@random')->name('product.random');
-Route::get('/product/create', 'App\Http\Controllers\ProductController@create')->name('product.create');
+Route::get('/product/create', 'App\Http\Controllers\ProductController@create')->middleware('auth')->name('product.create');
 Route::post('/product/save', 'App\Http\Controllers\ProductController@save')->name('product.save');
+Route::get('/product/random', 'App\Http\Controllers\ProductController@random')->name('product.random');
 Route::get('/product/{id}', 'App\Http\Controllers\ProductController@show')->name('product.show');
 Route::delete('/product/delete', 'App\Http\Controllers\ProductController@delete')->name('product.delete');
 
 // Recipe
 Route::get('/recipe', 'App\Http\Controllers\RecipeController@index')->name('recipe.index');
-Route::get('/recipe/create', 'App\Http\Controllers\RecipeController@create')->name('recipe.create');
+Route::get('/recipe/create', 'App\Http\Controllers\RecipeController@create')->middleware('auth')->name('recipe.create');
 Route::post('/recipe/save', 'App\Http\Controllers\RecipeController@save')->name('recipe.save');
 Route::get('/recipe/{id}', 'App\Http\Controllers\RecipeController@show')->name('recipe.show');
 Route::delete('/recipe/delete', "App\Http\Controllers\RecipeController@delete")->name('recipe.delete');
@@ -27,9 +27,6 @@ Route::get('/payment', 'App\Http\Controllers\PaymentController@index')->name('pa
 Route::get('/payment/summary/{id}', 'App\Http\Controllers\PaymentController@summary')->name('payment.summary');
 Route::get('/payment/summary/{id}/pdf', 'App\Http\Controllers\PaymentController@pdf')->name('payment.pdf');
 Route::post('/payment/process', 'App\Http\Controllers\PaymentController@process')->name('payment.process');
-Route::get('/payment/create', 'App\Http\Controllers\PaymentController@create')->name('payment.create');
-Route::post('/payment/save', 'App\Http\Controllers\PaymentController@save')->name('payment.save');
-Route::get('/payment/{id}', 'App\Http\Controllers\PaymentController@show')->name('payment.show');
 Route::delete('/payment/delete', "App\Http\Controllers\PaymentController@delete")->name('payment.delete');
 
 // Order

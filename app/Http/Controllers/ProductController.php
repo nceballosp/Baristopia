@@ -33,23 +33,6 @@ class ProductController extends Controller
         return view('product.index')->with('viewData', $viewData);
     }
 
-    public function show(string $id): View
-    {
-        $viewData = [];
-        $product = Product::findOrFail($id);
-        $viewData['product'] = $product;
-
-        return view('product.show')->with('viewData', $viewData);
-    }
-
-    public function delete(Request $request): RedirectResponse
-    {
-        $id = $request->input('id');
-        Product::destroy($id);
-
-        return redirect()->route('product.index');
-    }
-
     public function create(): View
     {
         return view('product.create');
@@ -78,5 +61,22 @@ class ProductController extends Controller
         }
 
         return redirect()->route('product.index')->with('error', 'No products available.');
+    }
+
+    public function show(string $id): View
+    {
+        $viewData = [];
+        $product = Product::findOrFail($id);
+        $viewData['product'] = $product;
+
+        return view('product.show')->with('viewData', $viewData);
+    }
+
+    public function delete(Request $request): RedirectResponse
+    {
+        $id = $request->input('id');
+        Product::destroy($id);
+
+        return redirect()->route('product.index');
     }
 }

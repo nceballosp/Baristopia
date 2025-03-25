@@ -5,7 +5,6 @@
 namespace App\Models;
 
 use DateTime;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Http\Request;
@@ -16,15 +15,15 @@ class Item extends Model
      * ITEM ATTRIBUTES
      * $this->attributes['id'] - int - contains the item's primary key (id)
      * $this->attributes['quantity'] - int - contains the item's quantity
-     * $this->attributes['sub_total'] - int - contains the item's subtotal
+     * $this->attributes['sub_total'] - float - contains the item's subtotal
      * &this->product - Product - contains the associated product
      * $this->order - Order - contains the associates Order
      */
-
     public static function validate(Request $request): void
     {
         $request->validate([
-            'quantity' => 'required',
+            'quantity' => 'required | gt:0',
+            'sub_total' => 'required | gt:0',
         ]);
     }
 

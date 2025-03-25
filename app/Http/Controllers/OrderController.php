@@ -22,6 +22,22 @@ class OrderController extends Controller
         return view('order.index')->with('viewData', $viewData);
     }
 
+    public function create(): View
+    {
+        return view('order.create');
+    }
+
+    public function save(Request $request): RedirectResponse
+    {
+        Order::validate($request);
+        $orderData = $request->only(['summary', 'total_quantity', 'user', 'payment']);
+        $orderData['items'] = $request->input('items', []);
+
+        Order::create($orderData);
+
+        return redirect()->route('order.create')->with('success', 'Order created successfully');
+    }
+
     public function show(string $id): View
     {
         $viewData = [];
@@ -39,31 +55,6 @@ class OrderController extends Controller
         return redirect()->route('order.index')->with('success', 'Order deleted successfully');
     }
 
-    public function create(): View
-    {
-        return view('order.create');
-    }
-
-    public function save(Request $request): RedirectResponse
-    {
-        Order::validate($request);
-        $orderData = $request->only(['summary', 'total_quantity', 'user', 'payment']);
-        $orderData['items'] = $request->input('items', []);
-
-        Order::create($orderData);
-
-        return redirect()->route('order.create')->with('success', 'Order created successfully');
-    }
-
-    public function update(Request $request, string $id): RedirectResponse
-    {
-        Order::validate($request);
-        $order = Order::findOrFail($id);
-        $order->update($request->only(['summary', 'total_quantity', 'user', 'payment', 'items']));
-
-        return redirect()->route('order.show', $id)->with('success', 'Order updated successfully');
-    }
-
     public function checkout(Request $request): RedirectResponse
     {
         $totalPrice = 0;
@@ -72,8 +63,6 @@ class OrderController extends Controller
         if (empty($cartProductData)) {
             return redirect()->back()->with('error', 'Cart is empty');
         }
-
-        $cartProducts = Product::whereIn('id', array_keys($cartProductData))->get();
 
         foreach ($cartProductData as $productId => $data) {
             $product = Product::find($productId);

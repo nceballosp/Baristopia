@@ -5,7 +5,6 @@
 namespace App\Models;
 
 use DateTime;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Http\Request;
@@ -21,7 +20,6 @@ class Recipe extends Model
      * $this->attributes['image'] - string - contains the recipe's image url
      * $this->user - User - contains the associated User
      */
-
     protected $fillable = ['name', 'ingredients', 'description', 'image'];
 
     public static function validate(Request $request): void
@@ -30,7 +28,7 @@ class Recipe extends Model
             'name' => 'required',
             'ingredients' => 'required',
             'description' => 'required',
-            'image' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
         ]);
     }
 

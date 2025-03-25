@@ -6,7 +6,6 @@ namespace App\Models;
 
 use DateTime;
 use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -18,20 +17,17 @@ class Order extends Model
     /**
      * ORDER ATTRIBUTES
      * $this->attributes['id'] - int - contains the order's primary key (id)
-     * $this->attributes['total'] - int - contains the order's total price
+     * $this->attributes['total'] - float - contains the order's total price
      * $this->attributes['total_quantity'] - int - contains the order's total quantity of items
      * $this->user - User - contains the associated User
      * $this->payment - Payment - contains the associated Payment
      * $this->items - Item[] - contains the associated Items
      */
-
     public static function validate(Request $request): void
     {
         $request->validate([
-            'summary' => 'required|string',
+            'total' => 'required',
             'total_quantity' => 'required|integer',
-            'user' => 'required|exists:users,id',
-            'payment' => 'required|exists:payments,id',
         ]);
     }
 

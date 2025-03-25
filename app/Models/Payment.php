@@ -5,7 +5,6 @@
 namespace App\Models;
 
 use DateTime;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Http\Request;
@@ -19,7 +18,6 @@ class Payment extends Model
      * $this->attributes['status'] - string - contains the payment's status
      * $this->order - Order - contains the associated order
      */
-
     public static function validate(Request $request): void
     {
         $request->validate([

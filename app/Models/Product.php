@@ -6,7 +6,6 @@ namespace App\Models;
 
 use DateTime;
 use Filament\Notifications\Collection;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -19,13 +18,12 @@ class Product extends Model
      * $this->attributes['id'] - int - contains the product's primary key (id)
      * $this->attributes['name'] - string - contains the product's name
      * $this->attributes['description'] - string - contains the products's description
-     * $this->attributes['price'] - int contains the product's price
+     * $this->attributes['price'] - float contains the product's price
      * $this->attributes['image'] - string - contains the products's image
      * $this->attributes['stock'] - int contains the product's stock
      * $this->user - User - contains the associated User
      * $this->items - Item[] - contains the associated Items
      */
-    
     public static function validate(Request $request): void
     {
         $request->validate([
