@@ -1,5 +1,7 @@
 <?php
 
+// NCP
+
 namespace App\Http\Controllers;
 
 use Illuminate\View\View;

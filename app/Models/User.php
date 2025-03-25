@@ -1,5 +1,7 @@
 <?php
 
+// NCP
+
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;

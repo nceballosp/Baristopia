@@ -1,5 +1,7 @@
 <?php
 
+// JJVG
+
 namespace App\Util;
 
 use App\Interfaces\ImageStorage;

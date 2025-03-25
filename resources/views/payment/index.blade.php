@@ -1,3 +1,5 @@
+<!-- JJVG, NCP -->
+
 @extends('layouts.app')
 
 @section('content')
