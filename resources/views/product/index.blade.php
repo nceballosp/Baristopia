@@ -3,12 +3,13 @@
 @section('content')
 
 <div class="search">
-  <form method = "GET" action="" class="d-flex">
-  <input type="text" class="form-control me-2" placeholder="Search Product" name="search"/>
-  <input type="submit" class="btn btn-primary" value="Send" />
+  <form method = "get" action="" class="d-flex">
+    <input type="text" class="form-control me-2" placeholder="Search Product" name="search"/>
+    <input type="submit" class="btn btn-primary" value="Send" />
+    <input type="submit" class="btn" value="Sort By Price" name ="sort" id="sort"/>
   </form>
 </div>
-<a href="{{ route('product.random') }}" class="btn btn-primary">Surprise Me! 🎲</a>
+<a href="{{ route('product.random') }}" id="random" class="btn">Surprise Me! 🎲</a>
 
 <div class="row">
   @foreach ($viewData["products"] as $product)

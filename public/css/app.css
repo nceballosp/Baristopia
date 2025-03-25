@@ -88,3 +88,15 @@ h4, h3, h2, p, li, td, th, #quantity-label {
 #row {
     margin-right: 3rem;
 }
+
+#random {
+    background-color: #5E3023;
+    color: white;
+    margin-bottom: 0.7rem;
+}
+
+#sort {
+    background-color: #DAB49D;
+    color: #5E3023;
+    margin-left: 0.7rem;
+}

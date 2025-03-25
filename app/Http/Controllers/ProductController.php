@@ -22,6 +22,12 @@ class ProductController extends Controller
             $viewData['products'] = Product::whereLike('name', $query)->get();
         }
 
+        $sortQuery = $request->input('sort');
+
+        if ($sortQuery) {
+            $viewData['products'] = Product::orderBy('price', 'desc')->get();
+        }
+
         return view('product.index')->with('viewData', $viewData);
     }
 
