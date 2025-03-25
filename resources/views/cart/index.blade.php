@@ -15,10 +15,9 @@
       <ul>
         @foreach($viewData["cartProducts"] as $key => $product)
           <li>
-            Id: {{ $key }} - 
             Name: {{ $product->getName() }} -
-            Price: ${{ $product->getPrice() }}
-            Quantity: {{ $product->quantity }}
+            Price: ${{ $product->getPrice() }} -
+            Quantity: {{ $product->quantity }} -
             Subtotal: ${{ $product->getPrice() * $product->quantity }}
             <a href="{{ route('cart.remove', $key) }}" id="btn-cart" class="btn btn-danger">Remove</a>     
           </li>

@@ -28,7 +28,7 @@ class Recipe extends Model
             'name' => 'required',
             'ingredients' => 'required',
             'description' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
+            'profile_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
         ]);
     }
 

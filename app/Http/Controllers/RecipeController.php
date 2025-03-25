@@ -5,6 +5,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Recipe;
+use App\Interfaces\ImageStorage;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -30,10 +31,14 @@ class RecipeController extends Controller
     {
         Recipe::validate($request);
 
-        Recipe::create($request->only(['name', 'ingredients', 'description', 'image']));
-        $successMessage = 'Element created succesfully';
+        $storeInterface = app(ImageStorage::class);
+        $fileName = $storeInterface->store($request);
+        $productData = $request->only(['name', 'price', 'description', 'ingredients']);
+        $productData['image'] = $fileName;
 
-        return redirect()->route('recipe.create')->with('message', $successMessage);
+        Recipe::create($productData);
+
+        return redirect()->route('recipe.create')->with('success', 'Recipe created successfully');
     }
 
     public function show(string $id): View
@@ -49,8 +54,7 @@ class RecipeController extends Controller
     {
         $recipe = Recipe::findOrFail($id);
         $recipe->delete();
-        $deletionMessage = 'Element deleted succesfully';
 
-        return redirect()->route('recipe.index')->with('message', $deletionMessage);
+        return redirect()->route('recipe.index')->with('success', 'Recipe created successfully');
     }
 }
