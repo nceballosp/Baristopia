@@ -11,6 +11,7 @@
           Name: {{ $product["name"] }} -
           Price: {{ $product["price"] }} -
           <a href="{{ route('cart.add', ['id'=> $key]) }}">Add to cart</a>
+          <a href="{{ route('product.random') }}" class="btn btn-warning my-3">Surprise Me! 🎲</a>
         </li>
       @endforeach
     </ul>
