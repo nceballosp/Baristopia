@@ -16,6 +16,9 @@
       <img src="{{ asset('storage/' . $product->getImage()) }}" class="card-img-top img-card">
       <div class="card-body text-center">
         <a href="{{ route('product.show', ['id'=> $product->getId()]) }}"
+        <a href="{{ route('product.random') }}" class="btn btn-primary">Surprise Me! 🎲</a>
+
+
           class="btn bg-primary text-white">{{ $product->getName() }}</a>
       </div>
     </div>

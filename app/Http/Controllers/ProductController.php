@@ -60,4 +60,15 @@ class ProductController extends Controller
 
         return redirect()->route('product.create')->with('success', 'Product created successfully');
     }
+
+    public function random(): RedirectResponse
+    {
+    $product = Product::inRandomOrder()->first();
+
+    if ($product) {
+        return redirect()->route('product.show', ['id' => $product->id]);
+    }
+
+    return redirect()->route('product.index')->with('error', 'No products available.');
+    }
 }

@@ -11,6 +11,7 @@ Route::get('/product/create', 'App\Http\Controllers\ProductController@create')->
 Route::post('/product/save', 'App\Http\Controllers\ProductController@save')->name('product.save');
 Route::get('/product/{id}', 'App\Http\Controllers\ProductController@show')->name('product.show');
 Route::delete('/product/delete', "App\Http\Controllers\ProductController@delete")->name('product.delete');
+Route::get('/product/random', "App\Http\Controllers\ProductController@random")->name("product.random");
 
 // Recipe
 Route::get('/recipe', 'App\Http\Controllers\RecipeController@index')->name('recipe.index');
