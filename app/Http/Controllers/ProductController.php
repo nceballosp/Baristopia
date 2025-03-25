@@ -61,9 +61,8 @@ class ProductController extends Controller
         return redirect()->route('product.create')->with('success', 'Product created successfully');
     }
 
-    public function randomizer(): RedirectResponse
+    public function random(): RedirectResponse
     {
-        dd('gola');
         $product = Product::inRandomOrder()->first();
 
         if ($product) {
