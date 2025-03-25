@@ -9,7 +9,7 @@
 
     <body>
         <div class="container">
-            <h1>Payment Summary</h1>
+            <h2>Payment Summary</h2>
             <p><strong>Payment ID:</strong> {{ $viewData['payment']->getId() }}</p>
             <p><strong>Order ID:</strong> {{ $viewData['order']->getId() }}</p>
             <p><strong>Total Amount:</strong> ${{ number_format($viewData['order']->getTotal(), 2) }}</p>
@@ -31,6 +31,7 @@
                     </tr>
                 @endforeach
             </table>
+            <br>
 
             <a href="{{ route('payment.pdf', $viewData['payment']->getId()) }}" class="btn btn-primary">Download PDF</a>
         </div>

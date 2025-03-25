@@ -15,17 +15,18 @@
     </div>
     <div class="col-md-8">
       <div class="card-body">
-        <h5 class="card-title">
+        <h4>
            {{ $viewData['product']->getName() }}
-        </h5>
+        </h4>
         <p class="card-text">Descripcion: {{ $viewData['product']->getDescription()}}</p>
         <p class="card-text">Price: ${{ $viewData['product']->getPrice()}}</p>
         <p class="card-text">Stock: {{ $viewData['product']->getStock()}}</p>
         @if ($viewData['product']->getStock() != 0)    
         <form action="{{ route('cart.add', $viewData['product']->getId())  }}" method="POST">
           @csrf
-          <label for="quantity">Quantity:</label>
-          <input type="number" name="quantity" id="quantity" min="1" max="{{ $viewData['product']->getStock() }}" value="1" required>
+          <label id="quantity-label" for="quantity">Quantity:</label>
+          <input type="number" name="quantity" id="quantity" min="1" max="{{ $viewData['product']->getStock() }}" value="1" required> 
+          <br>
           <button type="submit" class="btn btn-primary">Add to Cart</button>
         </form>
         @else

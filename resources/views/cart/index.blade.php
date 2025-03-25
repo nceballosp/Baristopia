@@ -9,7 +9,7 @@
 
   <div class="row justify-content-center">
     <div class="col-md-12">
-    <h1>Products in cart</h1>
+    <h4>Products in cart</h4>
       <ul>
         @foreach($viewData["cartProducts"] as $key => $product)
           <li>
@@ -18,8 +18,7 @@
             Price: ${{ $product->getPrice() }}
             Quantity: {{ $product->quantity }}
             Subtotal: ${{ $product->getPrice() * $product->quantity }}
-            <a href="{{ route('cart.remove', $key) }}" class="btn btn-danger">Remove</a>
-                    
+            <a href="{{ route('cart.remove', $key) }}" id="btn-cart" class="btn btn-danger">Remove</a>     
           </li>
         @endforeach
       </ul>
