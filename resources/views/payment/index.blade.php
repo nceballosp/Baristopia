@@ -8,7 +8,6 @@
     </div>
     @endif
 
-    {{ session('order_id') }}
     <form action="{{ route('payment.process')}}" method="POST">
         @csrf
         <div class="mb-3">

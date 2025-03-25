@@ -12,15 +12,7 @@ class RecipeController extends Controller
     public function index(): View
     {
         $viewData = [];
-        $viewData['title'] = 'Recipes - Online Store';
-        $viewData['subtitle'] = 'List of Recipes';
         $viewData['recipes'] = Recipe::all();
-        $viewData['message'] = '';
-
-        if (session('message')) {
-            $message = session('message');
-            $viewData['message'] = $message;
-        }
 
         return view('recipe.index')->with('viewData', $viewData);
     }
@@ -29,8 +21,6 @@ class RecipeController extends Controller
     {
         $viewData = [];
         $recipe = Recipe::findOrFail($id);
-        $viewData['title'] = $recipe['name'].' - Online Store';
-        $viewData['subtitle'] = $recipe['name'].' - Recipe information';
         $viewData['recipe'] = $recipe;
 
         return view('recipe.show')->with('viewData', $viewData);
@@ -39,12 +29,11 @@ class RecipeController extends Controller
     public function create(): View
     {
         $viewData = [];
-        $viewData['title'] = 'Create recipe';
 
         return view('recipe.create')->with('viewData', $viewData);
     }
 
-    public function delete($id): RedirectResponse
+    public function delete(string $id): RedirectResponse
     {
         $recipe = Recipe::findOrFail($id);
         $recipe->delete();
