@@ -8,6 +8,7 @@
   <input type="submit" class="btn btn-primary" value="Send" />
   </form>
 </div>
+<a href="{{ route('product.randomizer') }}" class="btn btn-primary">Surprise Me! 🎲</a>
 
 <div class="row">
   @foreach ($viewData["products"] as $product)
