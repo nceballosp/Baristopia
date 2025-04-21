@@ -14,39 +14,6 @@ use Illuminate\View\View;
 
 class OrderController extends Controller
 {
-    public function index(): View
-    {
-        $viewData = [];
-        $viewData['orders'] = Order::all();
-
-        return view('order.index')->with('viewData', $viewData);
-    }
-
-    public function create(): View
-    {
-        return view('order.create');
-    }
-
-    public function save(Request $request): RedirectResponse
-    {
-        Order::validate($request);
-        $orderData = $request->only(['summary', 'total_quantity', 'user', 'payment']);
-        $orderData['items'] = $request->input('items', []);
-
-        Order::create($orderData);
-
-        return redirect()->route('order.create')->with('success', 'Order created successfully');
-    }
-
-    public function show(string $id): View
-    {
-        $viewData = [];
-        $order = Order::findOrFail($id);
-        $viewData['order'] = $order;
-
-        return view('order.show')->with('viewData', $viewData);
-    }
-
     public function delete(Request $request): RedirectResponse
     {
         $id = $request->input('id');

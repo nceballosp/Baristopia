@@ -30,10 +30,6 @@ Route::post('/payment/process', 'App\Http\Controllers\PaymentController@process'
 Route::delete('/payment/delete', "App\Http\Controllers\PaymentController@delete")->name('payment.delete');
 
 // Order
-Route::get('/order', 'App\Http\Controllers\OrderController@index')->name('order.index');
-Route::get('/order/create', 'App\Http\Controllers\OrderController@create')->name('order.create');
-Route::post('/order/save', 'App\Http\Controllers\OrderController@save')->name('order.save');
-Route::get('/order/{id}', 'App\Http\Controllers\OrderController@show')->name('order.show');
 Route::delete('/order/delete', "App\Http\Controllers\OrderController@delete")->name('order.delete');
 Route::post('/order/checkout', "App\Http\Controllers\OrderController@checkout")->name('order.checkout');
 
