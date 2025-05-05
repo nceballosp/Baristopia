@@ -7,7 +7,7 @@
   <div class="row justify-content-center">
     <div class="col-md-8">
       <div class="card">
-        <div class="card-header">Create product</div>
+        <div class="card-header">{{ __('messages.createProduct') }}</div>
           <div class="card-body">
             @if($errors->any())
             <ul id="errors" class="alert alert-danger list-unstyled">
@@ -29,7 +29,7 @@
               <input type="text" class="form-control mb-2" placeholder="Enter price" name="price" value="{{ old('price') }}" />
               <input type="text" class="form-control mb-2" placeholder="Enter description" name="description" value="{{ old('description') }}" />
               <input type="text" class="form-control mb-2" placeholder="Enter stock" name="stock" value="{{ old('stock') }}" />
-              <label>Image:</label>
+              <label>{{ __('messages.img') }}</label>
               <input type="file" class="form-control mb-2" name="profile_image"/>
               <input type="submit" class="btn btn-primary" value="Send" />
             </form>

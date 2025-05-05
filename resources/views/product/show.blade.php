@@ -20,19 +20,19 @@
         <h4>
            {{ $viewData['product']->getName() }}
         </h4>
-        <p class="card-text">Descripcion: {{ $viewData['product']->getDescription()}}</p>
-        <p class="card-text">Price: ${{ $viewData['product']->getPrice()}}</p>
-        <p class="card-text">Stock: {{ $viewData['product']->getStock()}}</p>
+        <p class="card-text">{{ __('messages.description') }}{{ $viewData['product']->getDescription()}}</p>
+        <p class="card-text">{{ __('messages.price') }}{{ $viewData['product']->getPrice()}}</p>
+        <p class="card-text">{{ __('messages.stock') }} {{ $viewData['product']->getStock()}}</p>
         @if ($viewData['product']->getStock() != 0)    
         <form action="{{ route('cart.add', $viewData['product']->getId())  }}" method="POST">
           @csrf
-          <label id="quantity-label" for="quantity">Quantity:</label>
+          <label id="quantity-label" for="quantity">{{ __('messages.quantity') }}</label>
           <input type="number" name="quantity" id="quantity" min="1" max="{{ $viewData['product']->getStock() }}" value="1" required> 
           <br>
-          <button type="submit" class="btn btn-primary">Add to Cart</button>
+          <button type="submit" class="btn btn-primary">{{ __('messages.addCart') }}</button>
         </form>
         @else
-        <p class="card-text">No stock</p>
+        <p class="card-text">{{ __('messages.noStock') }}</p>
         @endif
       </div>
     </div>

@@ -11,7 +11,7 @@
     <input type="submit" class="btn" value="Sort By Price" name ="sort" id="sort"/>
   </form>
 </div>
-<a href="{{ route('product.random') }}" id="random" class="btn">Surprise Me! 🎲</a>
+<a href="{{ route('product.random') }}" id="random" class="btn">{{ __('messages.random') }}</a>
 
 <div class="row">
   @foreach ($viewData["products"] as $product)

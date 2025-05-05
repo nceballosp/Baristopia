@@ -13,28 +13,28 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
     <div class="container">
       <img src="{{ asset('images/Logop.png') }}" alt="Logo" height="80">
-      <a class="navbar-brand" href="{{route('home.index')}}">Baristopia</a>
+      <a class="navbar-brand" href="{{route('home.index')}}">{{ __('messages.baristopia') }}</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
         aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav ms-auto">
-          <a class="nav-link active" href="{{route('home.index')}}">Home</a>
-          <a class="nav-link active" href="{{route('product.index')}}">Products</a>
-          <a class="nav-link active" href="{{route('recipe.index')}}">Recipes</a>
-          <a class="nav-link active" href="{{route('cart.index')}}">Cart</a>
+          <a class="nav-link active" href="{{route('home.index')}}">{{ __('messages.home') }}</a>
+          <a class="nav-link active" href="{{route('product.index')}}">{{ __('messages.products') }}</a>
+          <a class="nav-link active" href="{{route('recipe.index')}}">{{ __('messages.recipes') }}</a>
+          <a class="nav-link active" href="{{route('cart.index')}}">{{ __('messages.cart') }}</a>
           <div class="vr bg-white mx-2 d-none d-lg-block"></div>
           @guest
-          <a class="nav-link active" href="{{ route('login') }}">Login</a>
-          <a class="nav-link active" href="{{ route('register') }}">Register</a>
+          <a class="nav-link active" href="{{ route('login') }}">{{ __('messages.login') }}</a>
+          <a class="nav-link active" href="{{ route('register') }}">{{ __('messages.register') }}</a>
           @else
-          <a class="nav-link active" href="{{route('product.create')}}">Create Product</a>
-          <a class="nav-link active" href="{{route('recipe.create')}}">Create Recipe</a>
-          <a class="nav-link active" href="/baristopia">Admin</a>
+          <a class="nav-link active" href="{{route('product.create')}}">{{ __('messages.createProduct') }}</a>
+          <a class="nav-link active" href="{{route('recipe.create')}}">{{ __('messages.createRecipe') }}</a>
+          <a class="nav-link active" href="/baristopia">{{ __('messages.admin') }}</a>
             <form id="logout" action="{{ route('logout') }}" method="POST">
             <a role="button" class="nav-link active"
-            onclick="document.getElementById('logout').submit();">Logout</a>
+            onclick="document.getElementById('logout').submit();">{{ __('messages.logout') }}</a>
             @csrf
             </form>
             @endguest

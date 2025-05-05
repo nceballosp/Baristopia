@@ -14,8 +14,8 @@
         <h4>
            {{ $viewData['recipe']->getName() }}
         </h4>
-        <p class="card-text">Ingredients: ${{ $viewData['recipe']->getIngredients()}}</p>
-        <p class="card-text">Descripcion: {{ $viewData['recipe']->getDescription()}}</p>
+        <p class="card-text">{{ __('messages.ingredients') }}{{ $viewData['recipe']->getIngredients()}}</p>
+        <p class="card-text">{{ __('messages.description') }} {{ $viewData['recipe']->getDescription()}}</p>
       </div>
     </div>
   </div>

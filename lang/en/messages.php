@@ -1,0 +1,59 @@
+<?php
+
+// NCP
+
+return [
+    //Layouts
+    'baristopia' => 'Baristopia',
+    'home' => 'Home',
+    'products' => 'Products',
+    'recipes' => 'Recipes',
+    'cart' => 'Cart',
+    'register' => 'Register',
+    'login' => 'Login',
+    'createProduct' => 'Create Product',
+    'createRecipe' => 'Create Recipe',
+    'admin' => 'Admin',
+    'logout' => 'Logout',
+    //Home
+    'welcome' => 'Welcome to Baristopia!',
+    'introduction' => 'Baristopia is a coffee shop that offers a variety of coffee products. Our goal is to provide our customers with the best products and the best coffee experience.',
+    'registerHome' => 'You can create your own products to sell and your own coffee recipes if you register to our page!',
+    'registerNow' => 'Register Now!',
+    'buyProducts' => 'Or you can take a look and buy some of our products.',
+    'viewProducts' => 'View Products',
+    //Product
+    'img' => 'Image',
+    'random' => 'Surprise Me! 🎲',
+    'description' => ' Description: ',
+    'price' => 'Price: $',
+    'stock' => 'Stock: ',
+    'quantity' => 'Quantity',
+    'addCart' => 'Add to Cart',
+    'noStock' => 'No stock ',
+    //Recipe
+    'ingredients' => 'Ingredients',
+    //Payment
+    'choosePayment' => 'Choose payment method',
+    'debit' => 'Debit Card',
+    'credit' => 'Credit Card',
+    'PSE' => 'PSE',
+    'pay' => 'Pay Now',
+    'receipt' => 'Payment Receipt',
+    'payID' => 'Payment ID:',
+    'orderID' => 'Order ID:',
+    'totalAmount' => 'Total Amount:',
+    'payMethod' => 'Payment Method:',
+    'status' => 'Status:',
+    'orderItems' => 'Order Items', 
+    'product' => 'Product',
+    'subtotal' => 'Subtotal',
+    'paySummary' => 'Payment Summary',
+    'download' => 'Download PDF',
+    //Cart
+    'cartProducts' => 'Products in cart',
+    'name' => 'Name',
+    'remove' => 'Remove',
+    'removeAll' => 'Remove all products from cart',
+    'continue' => 'Continue Purchase',
+];

@@ -7,7 +7,7 @@
   <div class="row justify-content-center">
     <div class="col-md-8">
       <div class="card">
-        <div class="card-header">Create recipe</div>
+        <div class="card-header">{{ __('messages.createRecipe') }}</div>
           <div class="card-body">
             @if($errors->any())
             <ul id="errors" class="alert alert-danger list-unstyled">
@@ -28,7 +28,7 @@
               <input type="text" class="form-control mb-2" placeholder="Enter name" name="name" value="{{ old('name') }}" />
               <input type="text" class="form-control mb-2" placeholder="Enter description" name="description" value="{{ old('description') }}" />
               <input type="text" class="form-control mb-2" placeholder="Enter ingredients" name="ingredients" value="{{ old('ingredients') }}" />
-              <label>Image:</label>
+              <label>{{ __('messages.img') }}</label>
               <input type="file" class="form-control mb-2" name="profile_image"/>
               <input type="submit" class="btn btn-primary" value="Send" />
             </form>
