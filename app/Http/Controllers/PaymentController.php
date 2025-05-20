@@ -75,17 +75,4 @@ class PaymentController extends Controller
 
         return back()->with('error', 'Payment failed. Please try again.');
     }
-
-    public function delete(string $id): RedirectResponse
-    {
-        $payment = Payment::find($id);
-
-        if (! $payment) {
-            return redirect()->route('payment.index')->with('error', 'Payment has not been found.');
-        }
-
-        $payment->delete();
-
-        return redirect()->route('payment.index')->with('success', 'Payment deleted correctly');
-    }
 }

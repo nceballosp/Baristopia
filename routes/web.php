@@ -18,7 +18,7 @@ Route::delete('/product/delete', 'App\Http\Controllers\ProductController@delete'
 // Recipe
 Route::get('/recipe', 'App\Http\Controllers\RecipeController@index')->name('recipe.index');
 Route::get('/recipe/create', 'App\Http\Controllers\RecipeController@create')->middleware('auth')->name('recipe.create');
-Route::post('/recipe/save', 'App\Http\Controllers\RecipeController@save')->name('recipe.save');
+Route::post('/recipe/save', action: 'App\Http\Controllers\RecipeController@save')->name('recipe.save');
 Route::get('/recipe/{id}', 'App\Http\Controllers\RecipeController@show')->name('recipe.show');
 Route::delete('/recipe/delete', "App\Http\Controllers\RecipeController@delete")->name('recipe.delete');
 
@@ -38,5 +38,18 @@ Route::get('/cart', 'App\Http\Controllers\CartController@index')->name('cart.ind
 Route::post('/cart/add/{id}', 'App\Http\Controllers\CartController@add')->name('cart.add');
 Route::get('/cart/remove/{id}', 'App\Http\Controllers\CartController@remove')->name('cart.remove');
 Route::get('/cart/removeAll/', 'App\Http\Controllers\CartController@removeAll')->name('cart.removeAll');
+
+//Admin
+Route::get('/admin', 'App\Http\Controllers\AdminHomeController@index')->middleware(['auth', 'admin'])->name('admin.dashboard');
+
+Route::get('/admin/payment', 'App\Http\Controllers\AdminPaymentController@index')->middleware(['auth', 'admin'])->name('admin.payment.index');
+Route::get('/admin/payment/create', 'App\Http\Controllers\AdminPaymentController@create')->middleware(['auth', 'admin'])->name('admin.payment.create');
+Route::post('/admin/payment/save',  'App\Http\Controllers\AdminPaymentController@save')->middleware(['auth', 'admin'])->name('admin.payment.save');
+Route::get('/admin/payment/show', 'App\Http\Controllers\AdminPaymentController@show')->middleware(['auth', 'admin'])->name('admin.payment.show');
+
+Route::get('/admin/order', 'App\Http\Controllers\AdminOrderController@index')->middleware(['auth', 'admin'])->name('admin.order.index');
+Route::get('/admin/order/create', 'App\Http\Controllers\AdminOrderController@create')->middleware(['auth', 'admin'])->name('admin.order.create');
+Route::post('/admin/order/save',  'App\Http\Controllers\AdminOrderController@save')->middleware(['auth', 'admin'])->name('admin.order.save');
+Route::get('/admin/order/show', 'App\Http\Controllers\AdminOrderController@show')->middleware(['auth', 'admin'])->name('admin.order.show');
 
 Auth::routes();
