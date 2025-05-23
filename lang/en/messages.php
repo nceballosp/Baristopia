@@ -56,4 +56,17 @@ return [
     'remove' => 'Remove',
     'removeAll' => 'Remove all products from cart',
     'continue' => 'Continue Purchase',
+    //Admin
+    'dashboard' => 'Dashboard',
+    'order' => 'Order',
+    'payment' => 'Payment',
+    'orders' => 'Orders',
+    'payments' => 'Payments',
+    'newOrder' => 'Create Order',
+    'newPayment' => 'Create Payment',
+    'id' => 'ID',
+    'total' => 'Total',
+    'totalQuantity' => 'Total Quantity',
+    'items' => 'Items',
+    'view' => 'View',
 ];

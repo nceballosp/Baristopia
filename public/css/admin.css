@@ -1,6 +1,71 @@
 /* NCP */
 
-body {
-    background-color: black;
-    color: white;
-}
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    background-color: #111827; 
+    color: #fff;
+  }
+
+  .sidebar {
+    width: 10%;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background-color: #1f2937; 
+    margin-right: 2%;
+    padding: 1%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sidebar a {
+    color: #d1d5db;
+    font-size: 1.3em;
+    font-weight: bold;
+    text-decoration: none;
+    margin: 1% 0;
+    padding: 5%;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+  }
+
+  .sidebar a:hover {
+    background-color: #374151;
+    color: #fff;
+  }
+
+  .sidebar a svg {
+    margin-right: 10px;
+  }
+
+  .btn { 
+    color: #000;
+    background: #d1d5db;
+    text-decoration: none;
+    padding: 0.7em;
+    border-radius: 8px;
+  }
+
+  table {
+    width: 100%;
+    margin-top: 5%;
+    border-collapse: collapse;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  th, td {
+    padding: 12px 15px;
+    text-align: center;
+    border-bottom: 1px solid #e2e8f0;
+  }
+
+  th {
+    background: #1f2937;
+    font-weight: 600;
+  }
+
+  

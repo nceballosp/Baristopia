@@ -56,4 +56,18 @@ return [
     'remove' => 'Eliminar',
     'removeAll' => 'Eliminar todos los productos del carrito',
     'continue' => 'Continuar Compra',
+    //Admin
+    'dashboard' => 'Panel',
+    'order' => 'Orden',
+    'payment' => 'Pago',
+    'orders' => 'Ordenes',
+    'payments' => 'Pagos',
+    'newOrder' => 'Crear Orden',
+    'newPayment' => 'Crear Pago',
+    'id' => 'ID',
+    'total' => 'Total',
+    'totalQuantity' => 'Cantidad Total',
+    'items' => 'Items',
+    'view' => 'Ver',
+  
 ];
