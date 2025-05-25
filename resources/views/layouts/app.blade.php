@@ -24,6 +24,7 @@
           <a class="nav-link active" href="{{route('product.index')}}">{{ __('messages.products') }}</a>
           <a class="nav-link active" href="{{route('recipe.index')}}">{{ __('messages.recipes') }}</a>
           <a class="nav-link active" href="{{route('cart.index')}}">{{ __('messages.cart') }}</a>
+          <a class="nav-link active" href="{{route('map.index')}}">Mapa</a>
           <div class="vr bg-white mx-2 d-none d-lg-block"></div>
           @guest
           <a class="nav-link active" href="{{ route('login') }}">{{ __('messages.login') }}</a>
@@ -47,6 +48,8 @@
   <div class="container my-4">
     @yield('content')
   </div>
-    
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+  @stack('scripts')
 </body>
 </html>

@@ -1,0 +1,71 @@
+.map-container {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.map-image {
+    width: 100%;
+    display: block;
+}
+
+.marker {
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    background: #ff4444;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.marker-label {
+    display: none;
+    position: absolute;
+    top: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff;
+    color: #333;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 13px;
+    white-space: nowrap;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.marker:hover .marker-label {
+    display: block;
+}
+
+.marker.poblado   { left: 62%; top: 75%; }
+.marker.laureles  { left: 38%; top: 55%; }
+.marker.envigado  { left: 70%; top: 90%; }
+.marker.bello     { left: 45%; top: 15%; }
+
+.info-window {
+    position: absolute;
+    background: white;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    display: none;
+    z-index: 1000;
+}
+
+.info-window h5 {
+    margin: 0 0 5px 0;
+    color: #333;
+}
+
+.info-window p {
+    margin: 0;
+    color: #666;
+} 

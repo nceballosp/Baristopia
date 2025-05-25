@@ -1,6 +1,6 @@
 <?php
 
-//NCP
+// NCP
 
 namespace App\Http\Middleware;
 

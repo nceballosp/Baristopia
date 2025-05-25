@@ -1,6 +1,6 @@
 <?php
 
-//NCP
+// NCP
 
 namespace App\Http\Controllers;
 
@@ -12,5 +12,4 @@ class AdminHomeController extends Controller
     {
         return view('admin.dashboard');
     }
-
 }

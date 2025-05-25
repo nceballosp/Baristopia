@@ -3,7 +3,7 @@
 // NCP
 
 return [
-    //Layouts
+    // Layouts
     'baristopia' => 'Baristopía',
     'home' => 'Inicio',
     'products' => 'Productos',
@@ -15,14 +15,14 @@ return [
     'createRecipe' => 'Crear Receta',
     'admin' => 'Administrador',
     'logout' => 'Cerrar sesión',
-    //Home
+    // Home
     'welcome' => '¡Bienvenido a Baristopía!',
     'introduction' => 'Baristopía es una cafetería que ofrece una variedad de productos de café. Nuestro objetivo es brindar a nuestros clientes los mejores productos y la mejor experiencia con el café.',
     'registerHome' => '¡Puedes crear tus propios productos para vender y tus propias recetas de café si te registras en nuestra página!',
     'registerNow' => '¡Regístrate ahora!',
     'buyProducts' => 'O puedes echar un vistazo y comprar algunos de nuestros productos.',
     'viewProducts' => 'Ver Productos',
-    //Product
+    // Product
     'img' => 'Imagen',
     'random' => '¡Sorpréndeme! 🎲',
     'description' => 'Descripción: ',
@@ -31,9 +31,9 @@ return [
     'quantity' => 'Cantidad',
     'addCart' => 'Agregar al Carrito',
     'noStock' => 'Sin stock',
-    //Recipe
+    // Recipe
     'ingredients' => 'Ingredientes',
-    //Payment
+    // Payment
     'choosePayment' => 'Elige método de pago',
     'debit' => 'Tarjeta Débito',
     'credit' => 'Tarjeta Crédito',
@@ -50,13 +50,13 @@ return [
     'subtotal' => 'Subtotal',
     'paySummary' => 'Resumen de Pago',
     'download' => 'Descargar PDF',
-    //Cart
+    // Cart
     'cartProducts' => 'Productos en el carrito',
     'name' => 'Nombre',
     'remove' => 'Eliminar',
     'removeAll' => 'Eliminar todos los productos del carrito',
     'continue' => 'Continuar Compra',
-    //Admin
+    // Admin
     'dashboard' => 'Panel',
     'order' => 'Orden',
     'payment' => 'Pago',
@@ -69,5 +69,5 @@ return [
     'totalQuantity' => 'Cantidad Total',
     'items' => 'Items',
     'view' => 'Ver',
-  
+
 ];
