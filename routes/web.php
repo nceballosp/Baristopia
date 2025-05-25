@@ -52,4 +52,7 @@ Route::get('/admin/order/create', 'App\Http\Controllers\AdminOrderController@cre
 Route::post('/admin/order/save',  'App\Http\Controllers\AdminOrderController@save')->middleware(['auth', 'admin'])->name('admin.order.save');
 Route::get('/admin/order/show', 'App\Http\Controllers\AdminOrderController@show')->middleware(['auth', 'admin'])->name('admin.order.show');
 
+//Services
+Route::get('/services/products', 'App\Http\Controllers\AlliesServicesController@index')->name('service.product.index');
+
 Auth::routes();
