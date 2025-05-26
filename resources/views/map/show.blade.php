@@ -26,12 +26,12 @@
         <div class="col-md-6">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Información</h5>
+                    <h5 class="card-title">{{ __('messages.info') }}</h5>
                     <p class="card-text">{{ $viewData['map']->getDescription() }}</p>
                     <ul class="list-unstyled">
-                        <li><strong>Dirección:</strong> {{ $viewData['map']->getAddress() }}</li>
-                        <li><strong>Teléfono:</strong> {{ $viewData['map']->getPhone() }}</li>
-                        <li><strong>Horario:</strong> {{ $viewData['map']->getOpeningHours() }}</li>
+                        <li><strong>{{ __('messages.dir') }}</strong> {{ $viewData['map']->getAddress() }}</li>
+                        <li><strong>{{ __('messages.phone') }}</strong> {{ $viewData['map']->getPhone() }}</li>
+                        <li><strong>{{ __('messages.openHours') }}</strong> {{ $viewData['map']->getOpeningHours() }}</li>
                     </ul>
                 </div>
             </div>

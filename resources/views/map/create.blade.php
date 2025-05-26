@@ -5,7 +5,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <h1 class="text-center mb-4">Agregar Nueva Cafetería</h1>
+            <h1 class="text-center mb-4">{{ __('messages.addCafe') }}</h1>
         </div>
     </div>
 
@@ -30,32 +30,32 @@
             <form action="{{ route('map.save') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
-                    <label for="name">Nombre</label>
+                    <label for="name">{{ __('messages.name') }}</label>
                     <input type="text" class="form-control" id="name" name="name" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="description">Descripción</label>
+                    <label for="description">{{ __('messages.description') }}</label>
                     <textarea class="form-control" id="description" name="description" rows="3" required></textarea>
                 </div>
 
                 <div class="form-group">
-                    <label for="address">Dirección</label>
+                    <label for="address">{{ __('messages.dir') }}</label>
                     <input type="text" class="form-control" id="address" name="address" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="phone">Teléfono</label>
+                    <label for="phone">{{ __('messages.phone') }}</label>
                     <input type="text" class="form-control" id="phone" name="phone" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="opening_hours">Horario de Apertura</label>
+                    <label for="opening_hours">{{ __('messages.openHours') }}</label>
                     <input type="text" class="form-control" id="opening_hours" name="opening_hours" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="image">Imagen</label>
+                    <label for="image">{{ __('messages.img') }}</label>
                     <input type="file" class="form-control-file" id="image" name="image" required>
                 </div>
 
@@ -63,12 +63,12 @@
                 <input type="hidden" id="longitude" name="longitude" required>
 
                 <div class="form-group">
-                    <label>Ubicación en el Mapa</label>
+                    <label>{{ __('messages.mapLoc') }}</label>
                     <div id="map" style="height: 400px; width: 100%;"></div>
-                    <small class="form-text text-muted">Haz clic en el mapa para seleccionar la ubicación</small>
+                    <small class="form-text text-muted">{{ __('messages.mapClick') }}</small>
                 </div>
 
-                <button type="submit" class="btn btn-primary">Guardar</button>
+                <button type="submit" class="btn btn-primary">{{ __('messages.save') }}</button>
             </form>
         </div>
     </div>

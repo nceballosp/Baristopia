@@ -35,10 +35,8 @@ Route::get('/payment', 'App\Http\Controllers\PaymentController@index')->name('pa
 Route::get('/payment/summary/{id}', 'App\Http\Controllers\PaymentController@summary')->name('payment.summary');
 Route::get('/payment/summary/{id}/pdf', 'App\Http\Controllers\PaymentController@pdf')->name('payment.pdf');
 Route::post('/payment/process', 'App\Http\Controllers\PaymentController@process')->name('payment.process');
-Route::delete('/payment/delete', 'App\Http\Controllers\PaymentController@delete')->name('payment.delete');
 
 // Order
-Route::delete('/order/delete', 'App\Http\Controllers\OrderController@delete')->name('order.delete');
 Route::post('/order/checkout', 'App\Http\Controllers\OrderController@checkout')->name('order.checkout');
 
 // Cart

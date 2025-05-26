@@ -3,8 +3,8 @@
 // NCP
 
 namespace App\Http\Controllers\Admin;
-use App\Http\Controllers\Controller;
 
+use App\Http\Controllers\Controller;
 use App\Models\Order;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -32,7 +32,7 @@ class AdminOrderController extends Controller
 
         Order::create($orderData);
 
-        return redirect()->route('admin.order.create')->with('success', 'order created successfully');
+        return redirect()->route('admin.order.create')->with('success', __('messages.orderSuccess'));
     }
 
     public function show(string $id): View
@@ -49,7 +49,7 @@ class AdminOrderController extends Controller
         $id = $request->input('id');
         Order::destroy($id);
 
-        return redirect()->route('admin.order.index');
+        return redirect()->route('admin.order.index')->with('success', __('messages.orderDelSuccess'));
     }
 
     public function edit(string $id): View
@@ -71,6 +71,6 @@ class AdminOrderController extends Controller
         $order->setTotalQuantity($request->input('total_quantity'));
         $order->save();
 
-        return redirect()->route('admin.order.index')->with('success', 'Order updated successfully');
+        return redirect()->route('admin.order.index')->with('success', __('messages.orderUpSuccess'));
     }
 }

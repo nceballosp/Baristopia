@@ -40,7 +40,7 @@ class CartController extends Controller
         ];
         $request->session()->put('cart_product_data', $cartProductData);
 
-        return redirect()->back()->with('success', 'Product added successfully');
+        return redirect()->back()->with('success', __('messages.prodAddSuccess'));
     }
 
     public function remove(string $id, Request $request): RedirectResponse
@@ -52,7 +52,7 @@ class CartController extends Controller
             $request->session()->put('cart_product_data', $cartProductData);
         }
 
-        return back()->with('success', 'Product removed successfully ');
+        return back()->with('success', __('messages.prodRmSuccess'));
     }
 
     public function removeAll(Request $request): RedirectResponse

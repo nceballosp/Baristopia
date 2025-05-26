@@ -38,7 +38,7 @@ class RecipeController extends Controller
 
         Recipe::create($productData);
 
-        return redirect()->route('recipe.create')->with('success', 'Recipe created successfully');
+        return redirect()->route('recipe.create')->with('success', __('messages.recipeSuccess'));
     }
 
     public function show(string $id): View
@@ -55,6 +55,6 @@ class RecipeController extends Controller
         $recipe = Recipe::findOrFail($id);
         $recipe->delete();
 
-        return redirect()->route('recipe.index')->with('success', 'Recipe deleted successfully');
+        return redirect()->route('recipe.index');
     }
 }
