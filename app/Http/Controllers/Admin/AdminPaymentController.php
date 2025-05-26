@@ -4,9 +4,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Http\RedirectResponse;
 use App\Models\Payment;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class AdminPaymentController extends Controller
@@ -73,5 +73,4 @@ class AdminPaymentController extends Controller
 
         return redirect()->route('admin.payment.index')->with('success', 'payment updated successfully');
     }
-
 }
