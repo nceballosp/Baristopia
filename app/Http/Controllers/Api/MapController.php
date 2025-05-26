@@ -12,7 +12,8 @@ class MapController extends Controller
 {
     public function index()
     {
-        return view('map.index');
+        $cafeterias = Map::all();
+        return view('map.index', compact('cafeterias'));
     }
 
     public function show($id)
@@ -24,19 +25,10 @@ class MapController extends Controller
     public function store(Request $request)
     {
         $map = new Map();
-        $map->setName($request->input('name'));
-        $map->setDescription($request->input('description'));
-        $map->setAddress($request->input('address'));
-        $map->setLatitude($request->input('latitude'));
-        $map->setLongitude($request->input('longitude'));
-        $map->setPhone($request->input('phone'));
-        $map->setOpeningHours($request->input('opening_hours'));
-
-        if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('maps', 'public');
-            $map->setImage($imagePath);
-        }
-
+        $map->name = $request->input('name');
+        $map->description = $request->input('description');
+        $map->left = $request->input('left');
+        $map->top = $request->input('top');
         $map->save();
 
         return redirect()->route('map.index');

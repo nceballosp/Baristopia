@@ -8,11 +8,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/maps', 'App\Http\Controllers\Api\MapController@index')->name('api.map.index');
-Route::get('/maps/{id}', 'App\Http\Controllers\Api\MapController@show')->name('api.map.show');
-Route::post('/maps', 'App\Http\Controllers\Api\MapController@store')->name('api.map.store');
-Route::delete('/maps/{id}', 'App\Http\Controllers\Api\MapController@delete')->name('api.map.delete'); 
-
 
 Route::get('/user', function (Request $request) {
     return $request->user();
