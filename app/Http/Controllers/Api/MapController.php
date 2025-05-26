@@ -13,18 +13,20 @@ class MapController extends Controller
     public function index()
     {
         $cafeterias = Map::all();
+
         return view('map.index', compact('cafeterias'));
     }
 
     public function show($id)
     {
         $map = Map::findOrFail($id);
+
         return view('map.show')->with('map', $map);
     }
 
     public function store(Request $request)
     {
-        $map = new Map();
+        $map = new Map;
         $map->name = $request->input('name');
         $map->description = $request->input('description');
         $map->left = $request->input('left');
@@ -37,6 +39,7 @@ class MapController extends Controller
     public function delete($id)
     {
         Map::destroy($id);
+
         return back();
     }
 }

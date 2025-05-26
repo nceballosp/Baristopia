@@ -29,7 +29,7 @@ class AdminPaymentController extends Controller
         Payment::validate($request);
 
         $productData = $request->only(['method', 'status']);
-    
+
         Payment::create($productData);
 
         return redirect()->route('admin.payment.create')->with('success', 'Payment created successfully');
@@ -40,7 +40,7 @@ class AdminPaymentController extends Controller
         $viewData = [];
         $payment = Payment::findOrFail($id);
         $viewData['payment'] = $payment;
- 
+
         return view('admin.payment.show')->with('viewData', $viewData);
     }
 
