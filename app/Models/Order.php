@@ -31,7 +31,7 @@ class Order extends Model
         ]);
     }
 
-    protected $fillable = ['summary', 'total_quantity', 'total', 'user_id', 'payment_id'];
+    protected $fillable = ['total_quantity', 'total', 'user_id', 'payment_id'];
 
     public function getId(): int
     {

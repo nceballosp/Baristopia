@@ -69,4 +69,11 @@ return [
     'totalQuantity' => 'Total Quantity',
     'items' => 'Items',
     'view' => 'View',
+    'completed' => 'Completed',
+    'notCompleted' => 'Not Completed',
+    'createPayment' => 'Create Payment',
+    'createOrder' => 'Create Order',
+    'edit' => 'Edit',
+    'updatePay' => 'Update Payment',
+    'updateOrder' => 'Update Order',
 ];

@@ -4,8 +4,8 @@
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
-    background-color: #111827; 
-    color: #fff;
+    background-color: #111827 !important;
+    color: #fff !important;
   }
 
   .sidebar {
@@ -13,7 +13,6 @@
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
     background-color: #1f2937; 
-    margin-right: 2%;
     padding: 1%;
     height: 100vh;
     display: flex;
@@ -37,13 +36,8 @@
     color: #fff;
   }
 
-  .sidebar a svg {
-    margin-right: 10px;
-  }
-
   .btn { 
-    color: #000;
-    background: #d1d5db;
+    background: #d1d5db !important;
     text-decoration: none;
     padding: 0.7em;
     border-radius: 8px;
@@ -51,21 +45,25 @@
 
   table {
     width: 100%;
-    margin-top: 5%;
+    margin-top: 2%;
     border-collapse: collapse;
     border-radius: 8px;
     overflow: hidden;
+    color: #d1d5db !important;
   }
 
   th, td {
-    padding: 12px 15px;
-    text-align: center;
-    border-bottom: 1px solid #e2e8f0;
+    text-align: left;
+    border-bottom: 1px solid #e2e8f0 !important;
   }
 
-  th {
-    background: #1f2937;
+  thead {
+    background: #1f2937 !important;
     font-weight: 600;
+  }
+
+  .form-select {
+    margin-bottom: 0.5%;
   }
 
   

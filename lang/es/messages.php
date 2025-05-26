@@ -69,5 +69,11 @@ return [
     'totalQuantity' => 'Cantidad Total',
     'items' => 'Items',
     'view' => 'Ver',
-  
+    'completed' => 'Completado',
+    'notCompleted' => 'No Completado',
+    'createPayment' => 'Crear Pago',
+    'createOrder' => 'Crear Orden',
+    'edit' => 'Editar',
+    'updatePay' => 'Actualizar Pago',
+    'updateOrder' => 'Actualizar Orden',
 ];

@@ -18,7 +18,7 @@
             <select class="form-select" name="method" id="">
                 <option value="debit">{{ __('messages.debit') }}</option>
                 <option value="credit">{{ __('messages.credit') }}</option>
-                <option value="amex">{{ __('messages.PSE') }}</option>
+                <option value="PSE">{{ __('messages.PSE') }}</option>
             </select>
         </div>
 

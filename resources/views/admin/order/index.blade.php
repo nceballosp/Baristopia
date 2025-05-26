@@ -7,9 +7,9 @@
   <div>
         <h2>{{ __('messages.orders') }}</h2>
         <a href="{{ route('admin.order.create') }}" class="btn">{{ __('messages.newOrder') }}</a>
-    </div>
+  </div>
     <table class="table">
-        <thead class="table-dark">
+        <thead>
             <tr>
                 <th>{{ __('messages.id') }}</th>
                 <th>{{ __('messages.total') }}</th>

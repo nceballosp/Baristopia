@@ -55,6 +55,6 @@ class RecipeController extends Controller
         $recipe = Recipe::findOrFail($id);
         $recipe->delete();
 
-        return redirect()->route('recipe.index')->with('success', 'Recipe created successfully');
+        return redirect()->route('recipe.index')->with('success', 'Recipe deleted successfully');
     }
 }
