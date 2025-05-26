@@ -65,7 +65,13 @@ Route::get('/admin/order/create', 'App\Http\Controllers\Admin\AdminOrderControll
 Route::post('/admin/order/save', 'App\Http\Controllers\Admin\AdminOrderController@save')->middleware(['auth', 'admin'])->name('admin.order.save');
 Route::get('/admin/order/show', 'App\Http\Controllers\Admin\AdminOrderController@show')->middleware(['auth', 'admin'])->name('admin.order.show');
 
+
 // Auth Routes
+
+//Services
+Route::get('/services/products', 'App\Http\Controllers\AlliesServicesController@index')->name('service.product.index');
+
+
 Auth::routes();
 
 // Rutas del mapa
