@@ -14,12 +14,12 @@
         </h4>
         <p class="card-text">{{ __('messages.payMethod') }}{{ $viewData['payment']->getMethod()}}</p>
         <p class="card-text">{{ __('messages.status') }}{{ $viewData['payment']->getStatus()}}</p>
-        <a href="{{ route('admin.payment.edit', ['id'=>$viewData['payment']->getId()]) }}">{{ __('messages.edit') }}</a>
+        <a class="btn btn-primary" href="{{ route('admin.payment.edit', ['id'=>$viewData['payment']->getId()]) }}">{{ __('messages.edit') }}</a>
         <form action="{{ route( 'admin.payment.delete') }}" method="POST">
             @csrf
             @method('DELETE')
             <input type="hidden" name="id" value="{{ $viewData['payment']->getId() }}" />
-            <button type="submit" class="btn btn-link text-danger p-0 m-0 align-baseline">
+            <button type="submit" class="btn btn-danger">
                 {{ __('messages.remove') }}
             </button>
         </form>

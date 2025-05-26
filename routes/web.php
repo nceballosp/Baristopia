@@ -69,8 +69,6 @@ Route::delete('admin/order/delete', "App\Http\Controllers\Admin\AdminOrderContro
 // Services
 Route::get('/services/products', 'App\Http\Controllers\AlliesServicesController@index')->name('service.product.index');
 
-Route::delete('admin/order/delete', "App\Http\Controllers\AdminOrderController@delete")->middleware(['auth', 'admin'])->name('admin.order.delete');
-
 // Auth
 Auth::routes();
 

@@ -36,9 +36,10 @@
     color: #fff;
   }
 
-  .btn { 
-    background: #d1d5db !important;
+  .btn{ 
+    background: #e2e8f0 !important;
     text-decoration: none;
+    color: black !important;
     padding: 0.7em;
     border-radius: 8px;
   }
