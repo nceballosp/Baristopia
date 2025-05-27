@@ -15,7 +15,7 @@ class Product extends Model
 {
     /**
      * PRODUCT ATTRIBUTES
-     * $this->attributes['id'] - int - contains the product's primary key (id)
+     * $this->attributes['id'] - string - contains the product's primary key (id)
      * $this->attributes['name'] - string - contains the product's name
      * $this->attributes['description'] - string - contains the products's description
      * $this->attributes['price'] - float contains the product's price

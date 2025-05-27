@@ -13,7 +13,7 @@ class Item extends Model
 {
     /**
      * ITEM ATTRIBUTES
-     * $this->attributes['id'] - int - contains the item's primary key (id)
+     * $this->attributes['id'] - string - contains the item's primary key (id)
      * $this->attributes['quantity'] - int - contains the item's quantity
      * $this->attributes['sub_total'] - float - contains the item's subtotal
      * &this->product - Product - contains the associated product

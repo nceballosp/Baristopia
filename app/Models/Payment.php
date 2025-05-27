@@ -13,7 +13,7 @@ class Payment extends Model
 {
     /**
      * PAYMENT ATTRIBUTES
-     * $this->attributes['id'] - int - contains the payment's primary key (id)
+     * $this->attributes['id'] - string - contains the payment's primary key (id)
      * $this->attributes['method'] - string - contains the payment method
      * $this->attributes['status'] - string - contains the payment's status
      * $this->order - Order - contains the associated order
