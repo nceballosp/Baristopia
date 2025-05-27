@@ -13,7 +13,7 @@ class RecipeCollection extends ResourceCollection
             'data' => $this->collection,
             'additionalData' => [
                 'storeName' => 'Baristopia',
-                'storeProductsLink' => 'http://127.0.0.1:8000/products',
+                'storeProductsLink' => 'http://34.226.108.75/product',
             ],
         ];
     }

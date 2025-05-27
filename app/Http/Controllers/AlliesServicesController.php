@@ -9,7 +9,7 @@ class AlliesServicesController extends Controller
 {
     public function index(): View
     {
-        $url = 'http://127.0.0.1:8000/api/recipes';
+        $url = 'http://3.90.162.55/api/computers';
 
         try {
             $response = Http::get($url);

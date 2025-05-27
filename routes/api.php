@@ -11,5 +11,5 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 
-Route::get('/recipes', 'App\Http\Controllers\Api\RecipeApiController@index')->name('api.recipe.index');
-Route::get('/recipes/paginate', 'App\Http\Controllers\Api\RecipeApiController@paginate')->name('api.recipe.paginate');
+Route::get('/recipe', 'App\Http\Controllers\Api\RecipeApiController@index')->name('api.recipe.index');
+Route::get('/recipe/paginate', 'App\Http\Controllers\Api\RecipeApiController@paginate')->name('api.recipe.paginate');
