@@ -33,7 +33,8 @@ RUN php artisan storage:link
 RUN php artisan migrate
 
 # Da permisos
-RUN chmod -R 775 storage bootstrap/cache
+RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
+RUN chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
 
 # Habilita mod_rewrite en Apache
 RUN a2enmod rewrite
