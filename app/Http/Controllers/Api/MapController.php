@@ -12,21 +12,26 @@ use Illuminate\View\View;
 
 class MapController extends Controller
 {
-    public function index()
+    public function index(): View
     {
         $cafeterias = Map::all();
 
         return view('map.index', compact('cafeterias'));
     }
 
+    public function create(): View
+    {
+        return view('map.create');
+    }
+
     public function show(string $id): View
     {
         $map = Map::findOrFail($id);
 
-        return view('map.show')->with('map', $map);
+        return view('map.show', compact('map'));
     }
 
-    public function store(Request $request): RedirectResponse
+    public function save(Request $request): RedirectResponse
     {
         $map = new Map;
         $map->name = $request->input('name');

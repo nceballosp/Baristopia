@@ -108,6 +108,12 @@ return [
     'saveCafe' => 'Guardar cafetería',
     'info' => 'Información',
     'map' => 'Mapa',
+    'posX' => 'Posición X (%)',
+    'posY' => 'Posición Y (%)',
+    'details' => 'Detalles de la Cafeteria',
+    'location' => 'Ubicacion: ',
+    'return' => 'Volver',
+    'rmCafe' => '¿Estás seguro de que quieres eliminar esta cafetería?',
     // Titles
     'editOrder' => 'Editar Pedido',
     'viewOrders' => 'Ver Pedidos',
@@ -124,4 +130,5 @@ return [
     'reset' => 'Restablecer',
     'verify' => 'Verificar',
     'createMap' => 'Crear Mapa',
+    'cancel' => 'Cancelar',
 ];

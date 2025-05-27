@@ -108,6 +108,12 @@ return [
     'saveCafe' => 'Save Cafeteria',
     'info' => 'Information',
     'map' => 'Map',
+    'posX' => 'Position X (%)',
+    'posY' => 'Position Y (%)',
+    'details' => 'Cafeteria Details',
+    'location' => 'Location: ',
+    'return' => 'Return',
+    'rmCafe' => 'Are you sure you want to delete this cafeteria?',
     // Titles
     'editOrder' => 'Edit Order',
     'viewOrders' => 'View Orders',
@@ -124,4 +130,5 @@ return [
     'reset' => 'Reset',
     'verify' => 'Verify',
     'createMap' => 'Create Map',
+    'cancel' => 'Cancel',
 ];

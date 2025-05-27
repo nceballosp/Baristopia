@@ -24,11 +24,11 @@ Route::get('/recipe/{id}', 'App\Http\Controllers\RecipeController@show')->name('
 Route::delete('/recipe/delete', 'App\Http\Controllers\RecipeController@delete')->name('recipe.delete');
 
 // Map
-Route::get('/map', 'App\Http\Controllers\MapController@index')->name('map.index');
-Route::get('/map/create', 'App\Http\Controllers\MapController@create')->middleware('auth')->name('map.create');
-Route::post('/map/save', 'App\Http\Controllers\MapController@save')->name('map.save');
-Route::get('/map/{id}', 'App\Http\Controllers\MapController@show')->name('map.show');
-Route::delete('/map/delete', 'App\Http\Controllers\MapController@delete')->name('map.delete');
+Route::get('/map', 'App\Http\Controllers\Api\MapController@index')->name('map.index');
+Route::get('/map/create', 'App\Http\Controllers\Api\MapController@create')->middleware('auth')->name('map.create');
+Route::post('/map/save', 'App\Http\Controllers\Api\MapController@save')->name('map.save');
+Route::get('/map/{id}', 'App\Http\Controllers\Api\MapController@show')->name('map.show');
+Route::delete('/map/delete', 'App\Http\Controllers\Api\MapController@delete')->name('map.delete');
 
 // Payment
 Route::get('/payment', 'App\Http\Controllers\PaymentController@index')->name('payment.index');
@@ -36,8 +36,10 @@ Route::get('/payment/summary/{id}', 'App\Http\Controllers\PaymentController@summ
 Route::get('/payment/summary/{id}/pdf', 'App\Http\Controllers\PaymentController@pdf')->name('payment.pdf');
 Route::post('/payment/process', 'App\Http\Controllers\PaymentController@process')->name('payment.process');
 Route::delete('/payment/delete', 'App\Http\Controllers\PaymentController@delete')->name('payment.delete');
+Route::delete('/payment/delete', 'App\Http\Controllers\PaymentController@delete')->name('payment.delete');
 
 // Order
+Route::delete('/order/delete', 'App\Http\Controllers\OrderController@delete')->name('order.delete');
 Route::delete('/order/delete', 'App\Http\Controllers\OrderController@delete')->name('order.delete');
 Route::post('/order/checkout', 'App\Http\Controllers\OrderController@checkout')->name('order.checkout');
 
@@ -66,17 +68,17 @@ Route::post('/admin/order/update', 'App\Http\Controllers\Admin\AdminOrderControl
 Route::get('/admin/order/show/{id}', 'App\Http\Controllers\Admin\AdminOrderController@show')->middleware(['auth', 'admin'])->name('admin.order.show');
 Route::delete('admin/order/delete', "App\Http\Controllers\Admin\AdminOrderController@delete")->middleware(['auth', 'admin'])->name('admin.order.delete');
 
+// Auth Routes
+Auth::routes();
+
+// Services
+Route::get('/services/products', 'App\Http\Controllers\AlliesServicesController@index')->name('service.product.index');
+
 // Services
 Route::get('/services/products', 'App\Http\Controllers\AlliesServicesController@index')->name('service.product.index');
 
 // Auth
 Auth::routes();
-
-// Rutas del maps
-Route::get('/maps', 'App\Http\Controllers\Api\MapController@index')->name('map.index');
-Route::get('/maps/{id}', 'App\Http\Controllers\Api\MapController@show')->name('map.show');
-Route::post('/maps', 'App\Http\Controllers\Api\MapController@store')->name('map.store');
-Route::delete('/maps/{id}', 'App\Http\Controllers\Api\MapController@delete')->name('map.delete');
 
 // Lang
 Route::get('lang/{lang}', 'App\Http\Controllers\LangController@index')->name('lang.index');
