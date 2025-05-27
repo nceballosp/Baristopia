@@ -26,6 +26,8 @@ RUN composer install \
 # Genera key de Laravel
 RUN php artisan key:generate
 
+RUN mkdir -p storage/app/public
+
 # Crea enlace simbólico para acceder a imágenes
 RUN php artisan storage:link
 
@@ -35,6 +37,8 @@ RUN php artisan migrate
 # Da permisos
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
 RUN chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
+RUN chmod -R 775 /var/www/html/storage/app/public
+
 
 # Habilita mod_rewrite en Apache
 RUN a2enmod rewrite
