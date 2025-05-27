@@ -17,6 +17,7 @@ return [
     'logout' => 'Logout',
     'spanish' => 'Spanish',
     'english' => 'English',
+    'changeLang' => 'Change Language',
     // Home
     'welcome' => 'Welcome to Baristopia!',
     'introduction' => 'Baristopia is a coffee shop that offers a variety of coffee products. Our goal is to provide our customers with the best products and the best coffee experience.',
@@ -107,4 +108,20 @@ return [
     'saveCafe' => 'Save Cafeteria',
     'info' => 'Information',
     'map' => 'Map',
+    // Titles
+    'editOrder' => 'Edit Order',
+    'viewOrders' => 'View Orders',
+    'showOrders' => 'Show Orders',
+    'editPayment' => 'Edit Payment',
+    'viewPayments' => 'View Payments',
+    'viewRecipes' => 'View Recipes',
+    'showPayments' => 'Show Payments',
+    'showRecipes' => 'Show Recipes',
+    'showProducts' => 'Show Products',
+    'allieService' => 'Allie Service',
+    'confirmPass' => 'Confirm Password',
+    'email' => 'Email',
+    'reset' => 'Reset',
+    'verify' => 'Verify',
+    'createMap' => 'Create Map',
 ];

@@ -1,7 +1,7 @@
 <!-- NCP, JJVG, SCL -->
 
 @extends('layouts.app')
-@section('title', 'Products')
+@section('title',  __('messages.viewProducts') )
 @section('content')
 
 <div class="search">

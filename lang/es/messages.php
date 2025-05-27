@@ -17,6 +17,7 @@ return [
     'logout' => 'Cerrar sesión',
     'spanish' => 'Español',
     'english' => 'Ingles',
+    'changeLang' => 'Cambiar Idioma',
     // Home
     'welcome' => '¡Bienvenido a Baristopía!',
     'introduction' => 'Baristopía es una cafetería que ofrece una variedad de productos de café. Nuestro objetivo es brindar a nuestros clientes los mejores productos y la mejor experiencia con el café.',
@@ -107,4 +108,20 @@ return [
     'saveCafe' => 'Guardar cafetería',
     'info' => 'Información',
     'map' => 'Mapa',
+    // Titles
+    'editOrder' => 'Editar Pedido',
+    'viewOrders' => 'Ver Pedidos',
+    'showOrders' => 'Mostrar Pedidos',
+    'editPayment' => 'Editar Pago',
+    'viewPayments' => 'Ver Pagos',
+    'viewRecipes' => 'Ver Recetas',
+    'showPayments' => 'Mostrar Pagos',
+    'showRecipes' => 'Mostrar Recetas',
+    'showProducts' => 'Mostrar Productos',
+    'allieService' => 'Servicio de Aliado',
+    'confirmPass' => 'Confirmar Contraseña',
+    'email' => 'Correo Electrónico',
+    'reset' => 'Restablecer',
+    'verify' => 'Verificar',
+    'createMap' => 'Crear Mapa',
 ];

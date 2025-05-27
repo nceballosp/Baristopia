@@ -1,6 +1,8 @@
 <!-- NCP -->
 
 @extends('layouts.admin')
+@section('title',  __('messages.showPayments') )
+
 @section('content')
 <div class="container">
     @if(session('success'))

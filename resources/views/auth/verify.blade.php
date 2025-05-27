@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title',  __('messages.verify') )
 
 @section('content')
 <div class="container">

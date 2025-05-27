@@ -1,7 +1,7 @@
 <!-- NCP -->
 
 @extends('layouts.app')
-@section('title', 'Recipes')
+@section('title',  __('messages.viewRecipes') )
 @section('content')
 
 <div class="row">

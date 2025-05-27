@@ -13,6 +13,14 @@ use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
+    public function delete(Request $request): RedirectResponse
+    {
+        $id = $request->input('id');
+        Order::destroy($id);
+
+        return redirect()->route('order.index')->with('success', 'Order deleted successfully');
+    }
+
     public function checkout(Request $request): RedirectResponse
     {
         $totalPrice = 0;

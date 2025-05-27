@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Agregar Nueva Cafetería')
+@section('title',  __('messages.createMap') )
 @section('content')
 
 <div class="container">
@@ -31,7 +31,7 @@
                 @csrf
                 <div class="form-group">
                     <label for="name">{{ __('messages.name') }}</label>
-                    <input type="text" class="form-control" id="name" name="name" required>
+                    <input class="form-control mb-2" type="text" class="form-control" id="name" name="name" required>
                 </div>
 
                 <div class="form-group">
@@ -41,22 +41,22 @@
 
                 <div class="form-group">
                     <label for="address">{{ __('messages.dir') }}</label>
-                    <input type="text" class="form-control" id="address" name="address" required>
+                    <input class="form-control mb-2" type="text" class="form-control" id="address" name="address" required>
                 </div>
 
                 <div class="form-group">
                     <label for="phone">{{ __('messages.phone') }}</label>
-                    <input type="text" class="form-control" id="phone" name="phone" required>
+                    <input class="form-control mb-2" type="text" class="form-control" id="phone" name="phone" required>
                 </div>
 
                 <div class="form-group">
                     <label for="opening_hours">{{ __('messages.openHours') }}</label>
-                    <input type="text" class="form-control" id="opening_hours" name="opening_hours" required>
+                    <input class="form-control mb-2" type="text" class="form-control" id="opening_hours" name="opening_hours" required>
                 </div>
 
                 <div class="form-group">
                     <label for="image">{{ __('messages.img') }}</label>
-                    <input type="file" class="form-control-file" id="image" name="image" required>
+                    <input class="form-control mb-2" type="file" class="form-control-file" id="image" name="image" required>
                 </div>
 
                 <input type="hidden" id="latitude" name="latitude" required>

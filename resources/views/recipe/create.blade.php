@@ -1,7 +1,7 @@
 <!-- NCP -->
 
 @extends('layouts.app')
-@section('title', 'Create')
+@section('title',  __('messages.createRecipe') )
 @section('content')
 <div class="container">
   <div class="row justify-content-center">

@@ -1,6 +1,7 @@
 <!-- NCP -->
 
 @extends('layouts.admin')
+@section('title',  __('messages.viewPayments') )
 
 @section('content')
 <div class="container">

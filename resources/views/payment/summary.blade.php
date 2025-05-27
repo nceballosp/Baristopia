@@ -1,6 +1,8 @@
 <!-- JJVG -->
 
 @extends('layouts.app')
+@section('title',  __('messages.paySummary') )
+
 @section('content')
 <div class="container">
     @if(session('success'))

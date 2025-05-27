@@ -1,7 +1,7 @@
 <!-- JJVG, NCP -->
 
 @extends('layouts.app')
-@section('title', 'Products')
+@section('title',  __('messages.showProducts') )
 @section('content')
 
 @if(session('success'))

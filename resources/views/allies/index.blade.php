@@ -1,7 +1,7 @@
 <!-- JJVG -->
 
 @extends('layouts.app')
-@section('title', 'Allie Service')
+@section('title',  __('messages.allieService') )
 @section('content')
 
 <div class="row">

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Mapa de Medellín')
+@section('title',  __('messages.map') )
 
 @push('styles')
     <link rel="stylesheet" href="{{ asset('css/map.css') }}">
@@ -25,16 +25,16 @@
         @csrf
         <div>
             <label for="name">{{ __('messages.name') }}</label>
-            <input type="text" id="name" name="name" required>
+            <input class="form-control mb-2" type="text" id="name" name="name" required>
         </div>
         <div>
             <label for="description">{{ __('messages.description') }}</label>
-            <input type="text" id="description" name="description" required>
+            <input class="form-control mb-2" type="text" id="description" name="description" required>
         </div>
         <input type="hidden" name="left" id="inputLeft">
         <input type="hidden" name="top" id="inputTop">
         <div>
-            <button type="submit">{{ __('messages.saveCafe') }}</button>
+            <button class="btn btn-primary" type="submit">{{ __('messages.saveCafe') }}</button>
         </div>
         <div id="posMsg" style="color: #888; font-size: 13px; margin-top: 5px;"></div>
     </form>
