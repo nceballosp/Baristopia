@@ -12,7 +12,7 @@ class Map extends Model
 {
     /**
      * MAP ATTRIBUTES
-     * $this->attributes['id'] - int - contains the map's primary key (id)
+     * $this->attributes['id'] - string - contains the map's primary key (id)
      * $this->attributes['name'] - string - contains the map's name
      * $this->attributes['description'] - string - contains the map's description
      * $this->attributes['address'] - string - contains the map's address

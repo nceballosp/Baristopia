@@ -13,7 +13,7 @@ class Recipe extends Model
 {
     /**
      * RECIPE ATTRIBUTES
-     * $this->attributes['id'] - int - contains the recipe's primary key (id)
+     * $this->attributes['id'] - string - contains the recipe's primary key (id)
      * $this->attributes['name'] - string - contains the recipe's name
      * $this->attributes['ingredients'] - string - contains the recipe's ingredients
      * $this->attributes['description'] - string - contains the recipe's description

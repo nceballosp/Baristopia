@@ -16,7 +16,7 @@ class User extends Authenticatable
 {
     /**
      * USER ATTRIBUTES
-     * $this->attributes['id'] - int - contains the user's primary key (id)
+     * $this->attributes['id'] - string - contains the user's primary key (id)
      * $this->attributes['username'] - string - contains the user's username
      * $this->attributes['name'] - string - contains the users's first name
      * $this->attributes['last_name'] - string - contains the users's last name
