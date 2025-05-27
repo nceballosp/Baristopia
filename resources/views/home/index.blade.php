@@ -1,7 +1,7 @@
 <!-- NCP -->
 
 @extends('layouts.app')
-@section('title', 'Home')
+@section('title', __('messages.home'))
 @section('content')
 
 <h3>{{ __('messages.welcome') }}</h3>

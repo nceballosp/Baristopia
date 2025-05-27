@@ -1,6 +1,7 @@
 <!-- JJVG, NCP -->
 
 @extends('layouts.app')
+@section('title',  __('messages.viewPayments') )
 
 @section('content')
 <div class="container">

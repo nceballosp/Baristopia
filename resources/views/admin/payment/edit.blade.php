@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-
+@section('title',  __('messages.editPayment') )
 @section('content')
 <div class="container mt-4">
     <h2>{{ $viewData['payment']->getId() }}</h2>

@@ -1,4 +1,8 @@
 @extends('layouts.app')
+@section('title',  __('messages.map') )
+@push('styles')
+    <link rel="stylesheet" href="{{ asset('css/map.css') }}">
+@endpush
 
 @section('content')
 <div class="container">
@@ -31,25 +35,25 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="mb-3">
-                                            <label for="name">Nombre de la Cafetería</label>
+                                            <label for="name">{{ __('messages.name') }}<</label>
                                             <input type="text" class="form-control" id="name" name="name" required>
                                         </div>
                                         <div class="mb-3">
-                                            <label for="description">Descripción</label>
+                                            <label for="description">{{ __('messages.description') }}<</label>
                                             <textarea class="form-control" id="description" name="description" rows="3" required></textarea>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="mb-3">
-                                            <label>Ubicación en el Mapa</label>
+                                            <label>{{ __('messages.mapLoc') }}<</label>
                                             <img src="{{ asset('images/Medellin.png') }}" alt="Mapa de Medellín" width="100%">
                                             <div class="row mt-2">
                                                 <div class="col-md-6">
-                                                    <label for="left">Posición X (%)</label>
+                                                    <label for="left">{{ __('messages.posX') }}</label>
                                                     <input type="number" class="form-control" id="left" name="left" min="0" max="100" step="0.01" required>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <label for="top">Posición Y (%)</label>
+                                                    <label for="top">{{ __('messages.posY') }}</label>
                                                     <input type="number" class="form-control" id="top" name="top" min="0" max="100" step="0.01" required>
                                                 </div>
                                             </div>
@@ -57,7 +61,7 @@
                                     </div>
                                 </div>
                                 <div class="text-end">
-                                    <button type="submit" class="btn btn-primary">Guardar Cafetería</button>
+                                    <button type="submit" class="btn btn-primary">{{ __('messages.saveCafe') }}</button>
                                 </div>
                             </form>
                         </div>

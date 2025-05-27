@@ -1,12 +1,12 @@
 @extends('layouts.app')
-
+@section('title',  __('messages.createMap') )
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h4>Agregar Nueva Cafetería</h4>
+                    <h4>{{ __('messages.addCafe') }}</h4>
                 </div>
                 <div class="card-body">
                     <form action="{{ route('map.save') }}" method="POST">
@@ -14,17 +14,17 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="mb-3">
-                                    <label for="name">Nombre de la Cafetería</label>
-                                    <input type="text" class="form-control" id="name" name="name" required>
+                                    <label for="name">{{ __('messages.name') }}</label>
+                                    <input type="text" class="form-control mb-2" id="name" name="name" required>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="description">Descripción</label>
-                                    <textarea class="form-control" id="description" name="description" rows="3" required></textarea>
+                                    <label for="description">{{ __('messages.description') }}</label>
+                                    <textarea class="form-control mb-2" id="description" name="description" rows="3" required></textarea>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
-                                    <label>Ubicación en el Mapa</label>
+                                    <label>{{ __('messages.mapLoc') }}</label>
                                     <div style="position: relative;">
                                         <img src="{{ asset('images/Medellin.png') }}" alt="Mapa de Medellín" width="100%" id="mapImage">
                                         <div id="marker" style="display: none; position: absolute; width: 10px; height: 10px; background-color: red; border-radius: 50%; transform: translate(-50%, -50%);"></div>
@@ -35,8 +35,8 @@
                             </div>
                         </div>
                         <div class="text-end">
-                            <a href="{{ route('map.index') }}" class="btn btn-secondary">Cancelar</a>
-                            <button type="submit" class="btn btn-primary">Guardar Cafetería</button>
+                            <a href="{{ route('map.index') }}" class="btn btn-secondary">{{ __('messages.cancel') }}</a>
+                            <button type="submit" class="btn btn-primary">{{ __('messages.saveCafe') }}</button>
                         </div>
                     </form>
                 </div>

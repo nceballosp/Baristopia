@@ -1,4 +1,5 @@
 @extends('layouts.admin')
+@section('title',  __('messages.editOrder') )
 
 @section('content')
 <div class="container mt-4">

@@ -1,6 +1,7 @@
 <!-- NCP -->
 
 @extends('layouts.admin')
+@section('title',  __('messages.viewOrders') )
 
 @section('content')
 <div class="container">

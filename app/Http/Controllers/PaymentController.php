@@ -13,6 +13,14 @@ use Illuminate\View\View;
 
 class PaymentController extends Controller
 {
+    public function delete(Request $request): RedirectResponse
+    {
+        $id = $request->input('id');
+        Payment::destroy($id);
+
+        return redirect()->route('order.index')->with('success', 'Order deleted successfully');
+    }
+
     public function index(): View
     {
         return view('payment.index');

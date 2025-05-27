@@ -2,6 +2,7 @@
 
 @extends('layouts.app')
 @section('content')
+@section('title',  __('messages.cart') )
 
 @if(session('success'))
   <div class="alert alert-success">
@@ -18,7 +19,7 @@
             {{ __('messages.name') }} {{ $product->getName() }} -
             {{ __('messages.price') }}{{ $product->getPrice() }} -
             {{ __('messages.quantity') }} {{ $product->quantity }} -
-            {{ __('messages.subtotal') }}{{ $product->getPrice() * $product->quantity }}
+            $ {{ __('messages.subtotal') }}{{ $product->getPrice() * $product->quantity }}
             <a href="{{ route('cart.remove', $key) }}" id="btn-cart" class="btn btn-danger">{{ __('messages.remove') }}</a>     
           </li>
         @endforeach

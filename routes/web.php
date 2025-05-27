@@ -4,13 +4,6 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\ProductController;
-use App\Http\Controllers\CartController;
-use App\Http\Controllers\RecipeController;
-use App\Http\Controllers\Api\MapController as ApiMapController;
-
-
 
 // Home
 Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home.index');
@@ -43,8 +36,10 @@ Route::get('/payment/summary/{id}', 'App\Http\Controllers\PaymentController@summ
 Route::get('/payment/summary/{id}/pdf', 'App\Http\Controllers\PaymentController@pdf')->name('payment.pdf');
 Route::post('/payment/process', 'App\Http\Controllers\PaymentController@process')->name('payment.process');
 Route::delete('/payment/delete', 'App\Http\Controllers\PaymentController@delete')->name('payment.delete');
+Route::delete('/payment/delete', 'App\Http\Controllers\PaymentController@delete')->name('payment.delete');
 
 // Order
+Route::delete('/order/delete', 'App\Http\Controllers\OrderController@delete')->name('order.delete');
 Route::delete('/order/delete', 'App\Http\Controllers\OrderController@delete')->name('order.delete');
 Route::post('/order/checkout', 'App\Http\Controllers\OrderController@checkout')->name('order.checkout');
 
@@ -76,7 +71,7 @@ Route::delete('admin/order/delete', "App\Http\Controllers\Admin\AdminOrderContro
 // Auth Routes
 Auth::routes();
 
-//Services
+// Services
 Route::get('/services/products', 'App\Http\Controllers\AlliesServicesController@index')->name('service.product.index');
 
 // Services
@@ -86,4 +81,4 @@ Route::get('/services/products', 'App\Http\Controllers\AlliesServicesController@
 Auth::routes();
 
 // Lang
-Route::get('lang/{lang}', 'App\Http\Controllers\LangController@index' )->name('lang.index');
+Route::get('lang/{lang}', 'App\Http\Controllers\LangController@index')->name('lang.index');

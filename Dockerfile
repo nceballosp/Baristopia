@@ -3,13 +3,13 @@ FROM php:8.3.11-apache
 # Instala dependencias necesarias
 RUN apt-get update -y && apt-get install -y openssl zip unzip git
 
-# Extensiones PHP necesarias
+# Instala extensiones necesarias de PHP
 RUN docker-php-ext-install pdo_mysql
 
 # Instala Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-# Copia el proyecto
+# Copia el proyecto al contenedor
 COPY . /var/www/html
 
 # Establece el directorio de trabajo
@@ -26,24 +26,25 @@ RUN composer install \
 # Genera key de Laravel
 RUN php artisan key:generate
 
-# Crea enlace simbólico para acceder a imágenes
-RUN php artisan storage:link
+# Crea el directorio donde se montará el volumen para imágenes
+RUN mkdir -p storage/app/public
 
-# Ejecuta migraciones si es necesario (puedes comentar si no lo necesitas)
-RUN php artisan migrate
-
-# Da permisos
+# Da permisos a Laravel
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
 RUN chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
+RUN chmod -R 775 /var/www/html/storage/app/public
 
 # Habilita mod_rewrite en Apache
 RUN a2enmod rewrite
 
-# Configura Apache para servir desde public/
+# Cambia el DocumentRoot de Apache para servir desde /public
 ENV APACHE_DOCUMENT_ROOT /var/www/html/public
-
-# Ajusta Apache para que sirva desde public/
 RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/000-default.conf
 
-# Reinicia Apache
-RUN service apache2 restart
+# Copia script de inicio que se ejecutará al levantar el contenedor
+COPY start.sh /start.sh
+RUN chmod +x /start.sh
+
+# Comando por defecto al iniciar el contenedor
+CMD ["/start.sh"]
+

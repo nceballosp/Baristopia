@@ -1,6 +1,7 @@
 <!-- NCP -->
 
 @extends('layouts.admin')
+@section('title',  __('messages.showOrder') )
 @section('content')
 <div class="container">
     @if(session('success'))

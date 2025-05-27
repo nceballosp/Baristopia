@@ -13,6 +13,17 @@
     margin-bottom: 0.7rem;
 }
 
+.dropdown-toggle {
+    background-color: #5E3023 !important;
+    border: none;
+    font-weight: 600;
+    padding: 8px;
+}
+
+.dropdown-menu {
+    background-color: #DAB49D;
+}
+
 #btn-cart {
     margin: 0.7rem;
 }

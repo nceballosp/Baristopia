@@ -1,7 +1,7 @@
 <!-- NCP -->
 
 @extends('layouts.admin')
-
+@section('title',  __('messages.createPayment') )
 @section('content')
 <div class="container">
 @if($errors->any())
