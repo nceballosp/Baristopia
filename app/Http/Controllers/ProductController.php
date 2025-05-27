@@ -49,7 +49,7 @@ class ProductController extends Controller
 
         Product::create($productData);
 
-        return redirect()->route('product.create')->with('success', 'Product created successfully');
+        return redirect()->route('product.create')->with('success', __('messages.prodSuccess'));
     }
 
     public function random(): RedirectResponse
@@ -60,7 +60,7 @@ class ProductController extends Controller
             return redirect()->route('product.show', ['id' => $product->getId()]);
         }
 
-        return redirect()->route('product.index')->with('error', 'No products available.');
+        return redirect()->route('product.index')->with('error', __('messages.noProds'));
     }
 
     public function show(string $id): View

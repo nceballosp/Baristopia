@@ -24,7 +24,10 @@
           <a class="nav-link active" href="{{route('product.index')}}">{{ __('messages.products') }}</a>
           <a class="nav-link active" href="{{route('recipe.index')}}">{{ __('messages.recipes') }}</a>
           <a class="nav-link active" href="{{route('cart.index')}}">{{ __('messages.cart') }}</a>
-          <a class="nav-link active" href="{{route('map.index')}}">Mapa</a>
+          <a class="nav-link active" href="{{route('map.index')}}">{{ __('messages.map') }}</a>
+
+          <a href="{{ route('lang.index', ['lang' => 'es']) }}">{{ __('messages.spanish') }}</a> |
+          <a href="{{ route('lang.index', ['lang' => 'en']) }}">{{ __('messages.english') }}</a>
           <div class="vr bg-white mx-2 d-none d-lg-block"></div>
           @guest
           <a class="nav-link active" href="{{ route('login') }}">{{ __('messages.login') }}</a>
@@ -32,7 +35,6 @@
           @else
           <a class="nav-link active" href="{{route('product.create')}}">{{ __('messages.createProduct') }}</a>
           <a class="nav-link active" href="{{route('recipe.create')}}">{{ __('messages.createRecipe') }}</a>
-          <a class="nav-link active" href="/baristopia">{{ __('messages.admin') }}</a>
             <form id="logout" action="{{ route('logout') }}" method="POST">
             <a role="button" class="nav-link active"
             onclick="document.getElementById('logout').submit();">{{ __('messages.logout') }}</a>

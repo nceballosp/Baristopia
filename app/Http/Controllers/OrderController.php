@@ -13,21 +13,13 @@ use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
-    public function delete(Request $request): RedirectResponse
-    {
-        $id = $request->input('id');
-        Order::destroy($id);
-
-        return redirect()->route('order.index')->with('success', 'Order deleted successfully');
-    }
-
     public function checkout(Request $request): RedirectResponse
     {
         $totalPrice = 0;
         $cartProductData = $request->session()->get('cart_product_data', []);
 
         if (empty($cartProductData)) {
-            return redirect()->back()->with('error', 'Cart is empty');
+            return redirect()->back()->with('error', __('messages.emptyCar'));
         }
 
         foreach ($cartProductData as $productId => $data) {

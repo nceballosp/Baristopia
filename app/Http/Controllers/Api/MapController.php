@@ -4,28 +4,30 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Map;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class MapController extends Controller
 {
-    public function index()
+    public function index(): View
     {
         $cafeterias = Map::all();
         return view('map.index', compact('cafeterias'));
     }
 
-    public function create()
+    public function create(): View
     {
         return view('map.create');
     }
 
-    public function show($id)
+    public function show(string $id): View
     {
         $map = Map::findOrFail($id);
         return view('map.show', compact('map'));
     }
 
-    public function save(Request $request)
+    public function save(Request $request): RedirectResponse
     {
         $map = new Map();
         $map->name = $request->input('name');
@@ -37,7 +39,7 @@ class MapController extends Controller
         return redirect()->route('map.index');
     }
 
-    public function delete($id)
+    public function delete(string $id): RedirectResponse
     {
         Map::destroy($id);
         return back();

@@ -70,9 +70,9 @@ class PaymentController extends Controller
             }
 
             return redirect()->route('payment.summary', ['id' => $payment->getId()])
-                ->with('success', 'Payment successful! Your order is confirmed.');
+                ->with('success', __('messages.payProcessSuccess'));
         }
 
-        return back()->with('error', 'Payment failed. Please try again.');
+        return back()->with('error', __('messages.payProcessFail'));
     }
 }

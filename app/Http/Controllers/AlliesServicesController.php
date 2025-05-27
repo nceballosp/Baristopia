@@ -14,17 +14,17 @@ class AlliesServicesController extends Controller
         try {
             $response = Http::get($url);
 
-            if (!$response->successful()) {
-                abort(500, 'Error al consumir el servicio externo.');
+            if (! $response->successful()) {
+                abort(500, __('messages.serviceError'));
             }
 
-            echo('entre');
+            echo 'entre';
 
             $payload = $response->json();
             $products = $payload['data'] ?? $payload;
 
-            if (!is_array($products)) {
-                abort(500, 'Formato de datos inválido.');
+            if (! is_array($products)) {
+                abort(500, __('messsages.dataFormatError'));
             }
 
             $viewData['products'] = $products;
@@ -32,8 +32,7 @@ class AlliesServicesController extends Controller
             return view('products.index')->with('viewData', $viewData);
 
         } catch (\Exception $e) {
-            // Manejo de errores de red o formato
-            abort(500, 'No se pudo conectar al servicio externo: ' . $e->getMessage());
+            abort(500, __('messages.unableConnect').$e->getMessage());
         }
     }
 }
