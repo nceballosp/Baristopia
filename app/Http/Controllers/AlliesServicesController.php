@@ -9,7 +9,7 @@ class AlliesServicesController extends Controller
 {
     public function index(): View
     {
-        $url = 'http://3.90.162.55/api/computers';
+        $url = 'http://34.226.108.75/api/recipe';
 
         try {
             $response = Http::get($url);
@@ -18,18 +18,18 @@ class AlliesServicesController extends Controller
                 abort(500, __('messages.serviceError'));
             }
 
-            echo 'entre';
-
             $payload = $response->json();
             $products = $payload['data'] ?? $payload;
+            $additionalData = $payload['additionalData'];
 
             if (! is_array($products)) {
                 abort(500, __('messsages.dataFormatError'));
             }
 
             $viewData['products'] = $products;
+            $viewData['additionalData'] = $additionalData;
 
-            return view('products.index')->with('viewData', $viewData);
+            return view('allies.index')->with('viewData', $viewData);
 
         } catch (\Exception $e) {
             abort(500, __('messages.unableConnect').$e->getMessage());
