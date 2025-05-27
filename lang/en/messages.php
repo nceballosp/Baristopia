@@ -15,6 +15,8 @@ return [
     'createRecipe' => 'Create Recipe',
     'admin' => 'Admin',
     'logout' => 'Logout',
+    'spanish' => 'Spanish',
+    'english' => 'English',
     // Home
     'welcome' => 'Welcome to Baristopia!',
     'introduction' => 'Baristopia is a coffee shop that offers a variety of coffee products. Our goal is to provide our customers with the best products and the best coffee experience.',
@@ -104,4 +106,5 @@ return [
     'save' => 'Save',
     'saveCafe' => 'Save Cafeteria',
     'info' => 'Information',
+    'map' => 'Map',
 ];

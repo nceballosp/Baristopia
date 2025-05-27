@@ -75,3 +75,6 @@ Route::get('/maps', 'App\Http\Controllers\Api\MapController@index')->name('map.i
 Route::get('/maps/{id}', 'App\Http\Controllers\Api\MapController@show')->name('map.show');
 Route::post('/maps', 'App\Http\Controllers\Api\MapController@store')->name('map.store');
 Route::delete('/maps/{id}', 'App\Http\Controllers\Api\MapController@delete')->name('map.delete');
+
+// Lang
+Route::get('lang/{lang}', 'App\Http\Controllers\LangController@index' )->name('lang.index');

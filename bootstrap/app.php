@@ -3,6 +3,7 @@
 // NCP
 
 use App\Http\Middleware\IsAdmin;
+use App\Http\Middleware\SetLocale;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
@@ -17,6 +18,9 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->alias([
             'admin' => IsAdmin::class,
+        ]);
+        $middleware->web(append:[
+            SetLocale::class
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
