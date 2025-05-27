@@ -131,4 +131,5 @@ return [
     'verify' => 'Verify',
     'createMap' => 'Create Map',
     'cancel' => 'Cancel',
+    'viewProductAllies' => 'View Allie Products',
 ];

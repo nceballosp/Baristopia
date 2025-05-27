@@ -7,7 +7,7 @@
 <div class="container mt-4">
     <h2>{{ $viewData['additionalData']['storeName'] }}</h1>
     <a href="{{ $viewData['additionalData']['storeProductsLink'] }}" class="btn btn-primary mt-3" target="_blank">
-        Ver productos aliados
+        {{ ('messages.viewProductAllies') }}
     </a>
 </div>
 <div class="row">

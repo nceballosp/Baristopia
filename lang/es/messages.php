@@ -131,4 +131,5 @@ return [
     'verify' => 'Verificar',
     'createMap' => 'Crear Mapa',
     'cancel' => 'Cancelar',
+    'viewProductAllies' => 'Ver productos Aliados',
 ];
