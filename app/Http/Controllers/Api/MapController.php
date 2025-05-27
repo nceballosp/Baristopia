@@ -1,7 +1,5 @@
 <?php
-
 // JJVG
-
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
@@ -16,13 +14,18 @@ class MapController extends Controller
         return view('map.index', compact('cafeterias'));
     }
 
+    public function create()
+    {
+        return view('map.create');
+    }
+
     public function show($id)
     {
         $map = Map::findOrFail($id);
-        return view('map.show')->with('map', $map);
+        return view('map.show', compact('map'));
     }
 
-    public function store(Request $request)
+    public function save(Request $request)
     {
         $map = new Map();
         $map->name = $request->input('name');
@@ -39,4 +42,4 @@ class MapController extends Controller
         Map::destroy($id);
         return back();
     }
-}
+} 

@@ -1,82 +1,46 @@
 @extends('layouts.app')
-@section('title', $viewData['map']->getName())
+
 @section('content')
-
-@php
-    $locationData = [
-        'lat' => $viewData['map']->getLatitude(),
-        'lng' => $viewData['map']->getLongitude(),
-        'name' => $viewData['map']->getName(),
-        'description' => $viewData['map']->getDescription(),
-        'address' => $viewData['map']->getAddress()
-    ];
-@endphp
-
 <div class="container">
-    <div class="row">
+    <div class="row justify-content-center">
         <div class="col-md-12">
-            <h1 class="text-center mb-4">{{ $viewData['map']->getName() }}</h1>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-md-6">
-            <img src="{{ asset('storage/' . $viewData['map']->getImage()) }}" class="img-fluid rounded" alt="{{ $viewData['map']->getName() }}">
-        </div>
-        <div class="col-md-6">
             <div class="card">
+                <div class="card-header">Detalles de la Cafetería</div>
                 <div class="card-body">
-                    <h5 class="card-title">Información</h5>
-                    <p class="card-text">{{ $viewData['map']->getDescription() }}</p>
-                    <ul class="list-unstyled">
-                        <li><strong>Dirección:</strong> {{ $viewData['map']->getAddress() }}</li>
-                        <li><strong>Teléfono:</strong> {{ $viewData['map']->getPhone() }}</li>
-                        <li><strong>Horario:</strong> {{ $viewData['map']->getOpeningHours() }}</li>
-                    </ul>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5>{{ $map->name }}</h5>
+                            <p>{{ $map->description }}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="position-relative">
+                                <img src="{{ asset('images/Medellin.png') }}" alt="Mapa de Medellín" style="width: 100%;">
+                                <div class="marker" style="position: absolute; left: {{ $map->left }}%; top: {{ $map->top }}%;">
+                                    <i class="fas fa-map-marker-alt text-danger" style="font-size: 24px;"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <a href="{{ route('map.index') }}" class="btn btn-secondary">Volver</a>
+                        <form action="{{ route('map.delete') }}" method="POST" class="d-inline">
+                            @csrf
+                            @method('DELETE')
+                            <input type="hidden" name="id" value="{{ $map->id }}">
+                            <button type="submit" class="btn btn-danger" onclick="return confirm('¿Estás seguro de que quieres eliminar esta cafetería?')">Eliminar</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <div class="row mt-4">
-        <div class="col-md-12">
-            <div id="map" style="height: 400px; width: 100%;"></div>
-        </div>
-    </div>
 </div>
 
-@push('scripts')
-<script src="https://maps.googleapis.com/maps/api/js?key={{ $viewData['googleMapsApiKey'] }}&callback=initMap" async defer></script>
-<script>
-    const locationData = JSON.parse('{!! json_encode($locationData) !!}');
-
-    function initMap() {
-        const map = new google.maps.Map(document.getElementById("map"), {
-            center: { lat: locationData.lat, lng: locationData.lng },
-            zoom: 15,
-        });
-
-        const marker = new google.maps.Marker({
-            position: { lat: locationData.lat, lng: locationData.lng },
-            map: map,
-            title: locationData.name
-        });
-
-        const infoWindow = new google.maps.InfoWindow({
-            content: `
-                <div>
-                    <h5>${locationData.name}</h5>
-                    <p>${locationData.description}</p>
-                    <p>${locationData.address}</p>
-                </div>
-            `
-        });
-
-        marker.addListener("click", () => {
-            infoWindow.open(map, marker);
-        });
+@push('styles')
+<style>
+    .marker {
+        transform: translate(-50%, -100%);
     }
-</script>
+</style>
 @endpush
-
 @endsection 

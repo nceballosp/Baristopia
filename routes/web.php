@@ -8,7 +8,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\RecipeController;
-use App\Http\Controllers\Api\MapController;
+use App\Http\Controllers\MapController;
+use App\Http\Controllers\Api\MapController as ApiMapController;
 
 // Home
 Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home.index');
@@ -27,13 +28,6 @@ Route::get('/recipe/create', 'App\Http\Controllers\RecipeController@create')->mi
 Route::post('/recipe/save', 'App\Http\Controllers\RecipeController@save')->name('recipe.save');
 Route::get('/recipe/{id}', 'App\Http\Controllers\RecipeController@show')->name('recipe.show');
 Route::delete('/recipe/delete', 'App\Http\Controllers\RecipeController@delete')->name('recipe.delete');
-
-// Map
-Route::get('/map', 'App\Http\Controllers\MapController@index')->name('map.index');
-Route::get('/map/create', 'App\Http\Controllers\MapController@create')->middleware('auth')->name('map.create');
-Route::post('/map/save', 'App\Http\Controllers\MapController@save')->name('map.save');
-Route::get('/map/{id}', 'App\Http\Controllers\MapController@show')->name('map.show');
-Route::delete('/map/delete', 'App\Http\Controllers\MapController@delete')->name('map.delete');
 
 // Payment
 Route::get('/payment', 'App\Http\Controllers\PaymentController@index')->name('payment.index');
@@ -65,17 +59,15 @@ Route::get('/admin/order/create', 'App\Http\Controllers\Admin\AdminOrderControll
 Route::post('/admin/order/save', 'App\Http\Controllers\Admin\AdminOrderController@save')->middleware(['auth', 'admin'])->name('admin.order.save');
 Route::get('/admin/order/show', 'App\Http\Controllers\Admin\AdminOrderController@show')->middleware(['auth', 'admin'])->name('admin.order.show');
 
+// Map
+Route::get('/map', 'App\Http\Controllers\Api\MapController@index')->name('map.index');
+Route::get('/map/create', 'App\Http\Controllers\Api\MapController@create')->middleware('auth')->name('map.create');
+Route::post('/map/save', 'App\Http\Controllers\Api\MapController@save')->name('map.save');
+Route::get('/map/{id}', 'App\Http\Controllers\Api\MapController@show')->name('map.show');
+Route::delete('/map/delete', 'App\Http\Controllers\Api\MapController@delete')->name('map.delete');
 
 // Auth Routes
+Auth::routes();
 
 //Services
 Route::get('/services/products', 'App\Http\Controllers\AlliesServicesController@index')->name('service.product.index');
-
-
-Auth::routes();
-
-// Rutas del mapa
-Route::get('/maps', 'App\Http\Controllers\Api\MapController@index')->name('map.index');
-Route::get('/maps/{id}', 'App\Http\Controllers\Api\MapController@show')->name('map.show');
-Route::post('/maps', 'App\Http\Controllers\Api\MapController@store')->name('map.store');
-Route::delete('/maps/{id}', 'App\Http\Controllers\Api\MapController@delete')->name('map.delete');
